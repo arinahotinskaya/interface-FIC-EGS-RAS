@@ -1,0 +1,50 @@
+.header {
+    &__container {
+        border-bottom: 4px solid #29518C;
+    }
+
+    &__logo {
+        width: 100%;
+    }
+
+    &__nav-container {
+        margin: 25px 29px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__nav {
+        gap: 70px;
+    }
+
+    &__link {
+        color: #000;
+        text-decoration-color: rgba(0, 0, 0, 0);
+        font-size: 24px;
+        transition: 0.5s text-decoration-color;
+
+        &:not(:last-child) {
+            margin-right: 70px;
+        }
+
+        &:hover {
+            text-decoration-color: rgba(0, 0, 0, 1);
+        }
+    }
+
+    &__auth-slash {
+        color: #000;
+        font-size: 24px;
+    }
+
+    &__auth-link {
+        color: #000;
+        text-decoration-color: rgba(0, 0, 0, 0);
+        font-size: 24px;
+        transition: 0.5s text-decoration-color;
+
+        &:hover {
+            text-decoration-color: rgba(0, 0, 0, 1);
+        }
+    }
+}
