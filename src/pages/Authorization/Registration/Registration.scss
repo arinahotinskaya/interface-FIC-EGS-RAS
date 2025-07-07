@@ -2,6 +2,6 @@
 
 .reg {
     &__container {
-        @include auth-container(30px, 45%, 530px)
+        @include auth-container(30px, 45%, 530px);
     }
 }
