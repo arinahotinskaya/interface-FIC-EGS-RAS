@@ -1,0 +1,20 @@
+export const position = [61.524, 105.3188];
+export const stations = [
+  { name: "artu", coords: [59.9343, 30.3351] },
+  { name: "petp", coords: [55.7558, 37.6173] },
+  { name: "yakt", coords: [62.0355, 129.6755] },
+  { name: "bili", coords: [56.4977, 84.9744] },
+  { name: "petr", coords: [57.0, 40.9738] },
+  { name: "yakz", coords: [56.8389, 60.6057] },
+  { name: "irkm", coords: [52.2864, 104.305] },
+  { name: "pets", coords: [67.638, 53.0065] },
+  { name: "yssk", coords: [56.8526, 53.2045] },
+  { name: "magl", coords: [59.5612, 150.8301] },
+  { name: "tixg", coords: [71.9801, 102.4743] },
+  { name: "mobj", coords: [68.9696, 33.0745] },
+  { name: "tixi", coords: [71.6263, 128.8349] },
+  { name: "mobn", coords: [55.9158, 94.8977] },
+  { name: "tixj", coords: [71.6872, 128.8694] },
+  { name: "nril", coords: [60.9344, 76.5531] },
+  { name: "yaka", coords: [62.0339, 129.7331] },
+];
