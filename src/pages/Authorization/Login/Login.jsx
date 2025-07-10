@@ -1,3 +1,4 @@
+import Button from '../../../components/Button/Button';
 import './Login.scss'
 
 function Login() {
@@ -10,7 +11,7 @@ function Login() {
             <input type="text" className="login__form-input" placeholder='Логин' required/>
             <input type="password" className="login__form-input" placeholder='Пароль' required/>
           </form> 
-          <button form="login__form" type="submit" className="login__btn">войти</button>
+          <Button form="login_form" type="submit" aim="login" content={'войти'}></Button>
         </div>
       </section>
     </>

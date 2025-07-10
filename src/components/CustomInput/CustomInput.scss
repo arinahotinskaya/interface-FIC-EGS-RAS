@@ -1,0 +1,46 @@
+.label-radiobutton,
+.label-checkbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 3px;
+    position: relative;
+    font-size: 24px;
+}
+
+.input-radiobutton,
+.input-checkbox {
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    border: 1.5px solid #888;
+    border-radius: 50%;
+    background: #fff;
+    position: relative;
+    transition: border-color 0.2s;
+    cursor: pointer;
+}
+
+.input-radiobutton::before,
+.input-checkbox::before {
+    transition: background 0.2s;
+}
+
+.input-radiobutton:checked,
+.input-checkbox:checked {
+    border-color: #000;
+    background: #fff;
+}
+
+.input-radiobutton:checked::before,
+.input-checkbox:checked::before {
+    content: "";
+    display: block;
+    width: 3px;
+    height: 3px;
+    background: #000;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+}

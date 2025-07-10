@@ -13,17 +13,17 @@ function Cards() {
               <h2 className="cards__title">Карта сети станций ГС РАН</h2>
               <div className="cards__map-container">
                 <div className="cards__map">
-                  <MapContainer center={position} zoom={3} style={{height: '100%', width: '100%'}} attributionControl={false}>
+                  <MapContainer center={position} zoom={2} style={{height: '100%', width: '100%'}} attributionControl={false}>
                     <TileLayer
-                      url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
-                      attribution='&copy; <a href="https://carto.com/attributions">CARTO</a>'
+                      attribution='&amp;copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
                     <GeoJSON data={russianBorder.features} className="cards__map--border" style={{ color: 'gray', weight: 1.25, fill: true }}/>
                     {stations.map(station => {
                       return (
                         <Marker key={station.name} position={station.coords}>
                           <Popup>
-                            <h3>Станция: {station.name}</h3>
+                            <h3>Станция: {station.name.toUpperCase()}</h3>
                             <p>Координаты: {station.coords.join(', ')}</p>
                           </Popup>
                         </Marker>
@@ -36,7 +36,7 @@ function Cards() {
                     {stations.map(station => {
                       return (
                         <li className="cards__map-info-item" key={station.name}>
-                          <span className="cards__map-info-item-title">{station.name}</span>
+                          <span className="cards__map-info-item-title">{station.name.toUpperCase()}</span>
                         </li>
                       );
                     })}
