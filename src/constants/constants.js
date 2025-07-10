@@ -1,4 +1,5 @@
-export const position = [61.524, 105.3188];
+export const position = [68.524, 105.3188];
+
 export const stations = [
   { name: "arti", coords: [56.43, 58.56] },
   { name: "artu", coords: [56.43, 58.56] },
@@ -15,3 +16,28 @@ export const stations = [
   { name: "yakt", coords: [62.031, 129.68] },
   { name: "yssk", coords: [47.03, 142.717] },
 ]; // Координаты взяты из IGS
+
+export const stationsName = [
+  "arti",
+  "artu",
+  "bilb",
+  "bili",
+  "irkm",
+  "irkt",
+  "lovj",
+  "mag0",
+  "magj",
+  "mobj",
+  "mobk",
+  "mobn",
+  "nril",
+  "petp",
+  "petr",
+  "pets",
+  "tixi",
+  "tixj",
+  "yaka",
+  "yakt",
+  "yakz",
+  "yssk",
+];

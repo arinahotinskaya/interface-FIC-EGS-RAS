@@ -1,3 +1,4 @@
+import Button from '../../../components/Button/Button';
 import './Registration.scss'
 
 function Registration() {
@@ -13,7 +14,7 @@ function Registration() {
             <input type="password" className="reg__form-input" placeholder='Пароль' required/>
             <input type="password" className="reg__form-input" placeholder='Подтверждение пароля' required/>
           </form> 
-          <button form="reg_form" type="submit" className="reg__btn">зарегистрироваться</button>
+          <Button form="reg_form" type="submit" aim="reg" content={'зарегистрироваться'}></Button>
         </div>
       </section>
     </>

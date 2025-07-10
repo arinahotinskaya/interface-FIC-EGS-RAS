@@ -1,3 +1,5 @@
+ @import '../../styles/mixins';
+
 .login,
 .reg {
     display: flex;
@@ -46,12 +48,10 @@
         }
     }
 
-    &__btn {
+    &__button {
+        @include button(#000, #000, #fff);
         padding: 10px 27px;
-        border: none;
         border-radius: 10px;
-        background-color: #000;
-        color: #fff;
         font-size: 24px;
         cursor: pointer;
     }
