@@ -1,4 +1,5 @@
  @import '../../styles/mixins';
+ @import '../../styles/variables.scss';
 
 .login,
 .reg {
@@ -11,16 +12,16 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: #29518C;
-        border-radius: 20px;
-        box-shadow: 8px 8px 6px rgb(0, 0, 0, 0.8);
+        background-color: $main-color;
+        border-radius: $radius-m;
+        box-shadow: 8px 8px 6px $shadow-black;
     }
 
     &__title {
-        color: #fff;
-        font-size: 48px;
-        font-weight: 700;
-        text-shadow: 4px 4px 6px rgb(1, 1, 1, 0.8);
+        color: $white-color;
+        font-size: $font-size-l;
+        font-weight: $font-weight-bold;
+        text-shadow: 4px 4px 6px $shadow-white;
     }
 
     &__form {
@@ -37,18 +38,18 @@
             padding: 4px 0 4px 16px;
             height: 36px;
             border: none;
-            border-radius: 10px;
-            color: #000;
-            font-size: 24px;
+            border-radius: $radius-s;
+            color: $black-color;
+            font-size: $font-size-s;
 
             &::placeholder {
-                color: rgb(41, 81, 140, 0.5);
-                font-size: 24px;
+                color: $placeholder-main;
+                font-size: $font-size-s;
             }
         }
     }
 
     &__button {
-        @include button(#000, #000, #fff);
+        @include button($black-color, $black-color, $white-color);
     }
 }

@@ -1,4 +1,5 @@
 @import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
 
 .stations {
 
@@ -13,8 +14,8 @@
     &__title {
         margin-top: 39px;
         margin-left: 29px;
-        font-weight: 700;
-        font-size: 36px;
+        font-weight: $font-weight-bold;
+        font-size: $font-size-m;
         align-self: flex-start;
     }
 
@@ -38,29 +39,29 @@
         }
 
         &-label {
-            font-size: 24px;
+            font-size: $font-size-s;
         }
 
         &-label::placeholder {
-            color: #888;
+            color: $second-color;
         }
 
         &-input {
             padding: 5px 10px;
             margin-left: 6px;
-            border: 1px solid #000;
-            border-radius: 10px;
-            font-size: 24px;
+            border: 1px solid $black-color;
+            border-radius: $radius-s;
+            font-size: $font-size-s;
 
             &::placeholder {
-                font-size: 16px;
+                font-size: $font-size-xs;
             }
         }
 
         &-title {
             text-align: center;
             margin-bottom: 17px;
-            font-size: 24px;
+            font-size: $font-size-s;
         }
     }
 
@@ -71,7 +72,7 @@
 
         &-title {
             margin-bottom: 25px;
-            font-size: 24px;
+            font-size: $font-size-s;
         }
 
         &-radio {
@@ -89,6 +90,6 @@
     }
 
     &__button {
-        @include button(#000, #fff, #000);
+        @include button($black-color, $white-color, $black-color);
     }
 }

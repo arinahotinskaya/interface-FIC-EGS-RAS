@@ -1,6 +1,8 @@
+@import '../../styles/variables.scss';
+
 .header {
     &__container {
-        border-bottom: 4px solid #29518C;
+        border-bottom: 4px solid $main-color;
     }
 
     &__logo {
@@ -18,33 +20,33 @@
     }
 
     &__link {
-        color: #000;
-        text-decoration-color: rgba(0, 0, 0, 0);
-        font-size: 24px;
-        transition: 0.5s text-decoration-color;
+        color: $black-color;
+        text-decoration-color: $link-inactive;
+        font-size: $font-size-s;
+        transition: $transition-slow text-decoration-color;
 
         &:not(:last-child) {
             margin-right: 70px;
         }
 
         &:hover {
-            text-decoration-color: rgba(0, 0, 0, 1);
+            text-decoration-color: $link-active;
         }
     }
 
     &__auth-slash {
-        color: #000;
-        font-size: 24px;
+        color: $black-color;
+        font-size: $font-size-s;
     }
 
     &__auth-link {
-        color: #000;
-        text-decoration-color: rgba(0, 0, 0, 0);
-        font-size: 24px;
-        transition: 0.5s text-decoration-color;
+        color: $black-color;
+        text-decoration-color: $link-inactive;
+        font-size: $font-size-s;
+        transition: $transition-slow text-decoration-color;
 
         &:hover {
-            text-decoration-color: rgba(0, 0, 0, 1);
+            text-decoration-color: $link-active;
         }
     }
 }
