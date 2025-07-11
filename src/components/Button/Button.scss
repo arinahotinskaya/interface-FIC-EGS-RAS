@@ -1,0 +1,11 @@
+button {
+    padding: 10px 27px;
+    border-radius: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: 0.15s transform;
+
+    &:active {
+        transform: scale(0.95);
+    }
+}

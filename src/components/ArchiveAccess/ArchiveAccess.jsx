@@ -1,9 +1,9 @@
-import './Stations.scss'
+import './ArchiveAccess.scss'
 import { stationsName } from '../../constants/constants';
 import { useState } from 'react';
-import Checkbox from '../../components/CustomInput/Checkbox'
-import RadioButton from '../../components/CustomInput/Radiobutton';
-import Button from '../../components/Button/Button';
+import Checkbox from '../CustomInput/Checkbox'
+import RadioButton from '../CustomInput/Radiobutton';
+import Button from '../Button/Button';
 
 function Stations() {
   const [selectedStations, setSelectedStations] = useState([]);
@@ -75,7 +75,7 @@ function Stations() {
                   Год
                   <input
                     type="text"
-                    placeholder="Например, 2020 или 2020-2023)"
+                    placeholder="Например, 2020 или 2020-2023"
                     className="stations__criteria-input"
                   />
                 </label>

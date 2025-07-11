@@ -10,7 +10,7 @@ function Cards() {
     <>
       <section className="cards">
           <div className="cards__container">
-              <h2 className="cards__title">Карта сети станций ГС РАН</h2>
+              <h2 className="cards__title">Карта сети актуальных станций ГС РАН</h2>
               <div className="cards__map-container">
                 <div className="cards__map">
                   <MapContainer center={position} zoom={2} style={{height: '100%', width: '100%'}} attributionControl={false}>
