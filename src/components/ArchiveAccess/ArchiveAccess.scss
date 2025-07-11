@@ -7,7 +7,7 @@
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
-        row-gap: 8vh;
+        row-gap: 6vh;
     }
 
     &__title {
@@ -52,6 +52,9 @@
             border-radius: 10px;
             font-size: 24px;
 
+            &::placeholder {
+                font-size: 16px;
+            }
         }
 
         &-title {
@@ -87,9 +90,5 @@
 
     &__button {
         @include button(#000, #fff, #000);
-        padding: 10px 27px;
-        border-radius: 10px;
-        font-size: 24px;
-        cursor: pointer;
     }
 }

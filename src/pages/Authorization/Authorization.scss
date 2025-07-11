@@ -50,9 +50,5 @@
 
     &__button {
         @include button(#000, #000, #fff);
-        padding: 10px 27px;
-        border-radius: 10px;
-        font-size: 24px;
-        cursor: pointer;
     }
 }

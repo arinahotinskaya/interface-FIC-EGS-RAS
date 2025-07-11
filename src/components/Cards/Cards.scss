@@ -32,6 +32,18 @@
         &-info-item {
             list-style: none;
             cursor: pointer;
+
+            &-title {
+                font-size: 16px;
+                -webkit-user-select: none; /* Safari */
+                -moz-user-select: none; /* Firefox */
+                -ms-user-select: none; /* IE 10+ */
+                user-select: none; /* Standard */
+            }
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
 
         &-title {
