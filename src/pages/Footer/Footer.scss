@@ -1,0 +1,43 @@
+.footer {
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        padding: 25px 29px;
+        background-color: #29518C;
+    }
+
+    &__address,
+    &__contacts {
+        display: flex;
+        flex-direction: column;
+        row-gap: 8px;
+    }
+
+    &__title {
+        margin-bottom: 10px;
+        font-size: 24px;
+        font-weight: 700;
+        color: #fff;
+    }
+
+    &__description {
+        color: #fff;
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    &__email,
+    &__tel {
+        margin-left: 10px;
+        text-decoration-color: rgba(255, 255, 255, 0);
+        color: #fff;
+        font-weight: 500;
+        transition: 0.3s text-decoration-color;
+    }
+
+    &__email:hover,
+    &__tel:hover {
+        text-decoration-color: rgba(255, 255, 255, 1);
+    }
+}

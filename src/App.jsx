@@ -6,6 +6,7 @@ import Registration from "./pages/Authorization/Registration/Registration"
 import Login from "./pages/Authorization/Login/Login"
 import "./pages/Authorization/Authorization.scss"
 import StationsPage from "./pages/StationsPage/StationsPage"
+import Footer from "./pages/Footer/Footer"
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/registration" element={<Registration />} />
       </Routes>
+      <Footer />
     </>
   )
 }
