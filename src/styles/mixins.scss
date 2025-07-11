@@ -1,5 +1,6 @@
-@mixin auth-container($margin-top, $width, $height) {
-    margin-top: $margin-top;
+@mixin auth-container($margin-vertical, $width, $height) {
+    margin-top: $margin-vertical;
+    margin-bottom: $margin-vertical;
     width: $width;
     height: $height;
 }
