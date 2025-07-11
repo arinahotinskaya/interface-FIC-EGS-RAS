@@ -1,10 +1,12 @@
+@import '../../styles/variables.scss';
+
 .footer {
 
     &__container {
         display: flex;
         justify-content: space-between;
         padding: 25px 29px;
-        background-color: #29518C;
+        background-color: $main-color;
     }
 
     &__address,
@@ -16,28 +18,28 @@
 
     &__title {
         margin-bottom: 10px;
-        font-size: 24px;
-        font-weight: 700;
-        color: #fff;
+        font-size: $font-size-s;
+        font-weight: $font-weight-bold;
+        color: $white-color;
     }
 
     &__description {
-        color: #fff;
-        font-size: 16px;
-        font-weight: 400;
+        color: $white-color;
+        font-size: $font-size-xs;
+        font-weight: $font-weight-regular;
     }
 
     &__email,
     &__tel {
         margin-left: 10px;
-        text-decoration-color: rgba(255, 255, 255, 0);
-        color: #fff;
-        font-weight: 500;
-        transition: 0.3s text-decoration-color;
+        text-decoration-color: $link-inactive-white;
+        color: $white-color;
+        font-weight: $font-weight-medium;
+        transition: $transition-medium text-decoration-color;
     }
 
     &__email:hover,
     &__tel:hover {
-        text-decoration-color: rgba(255, 255, 255, 1);
+        text-decoration-color: $link-active-white;
     }
 }
