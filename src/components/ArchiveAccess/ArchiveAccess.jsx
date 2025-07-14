@@ -8,16 +8,23 @@ import Button from '../Button/Button';
 function Stations() {
   const [selectedStations, setSelectedStations] = useState([]);
   const allSelected = selectedStations.length === stationsName.length;
-  const [selectedDataType, setSelectedDataType] = useState('');
+  const [selectedDataType, setSelectedDataType] = useState([]);
   // const [year, setYear] = useState('');
   // const [day, setDay] = useState('');
-  const [selectedRequestType, setSelectedRequestType] = useState('');
 
   function handleStationChange(station) {
     setSelectedStations(prev =>
       prev.includes(station)
         ? prev.filter(s => s !== station)
         : [...prev, station]
+    );
+  }
+
+  function handleTypeChange(type) {
+    setSelectedDataType(prev =>
+      prev.includes(type)
+        ? prev.filter(t => t !== type)
+        : [...prev, type]
     );
   }
 
@@ -53,19 +60,10 @@ function Stations() {
           <div className='stations__criteria'>
             <div className="stations__criteria-data">
               <h3 className="stations__criteria-title">Тип данных</h3>
-              <RadioButton
-                name="dataType"
-                value="daily"
-                checked={selectedDataType === "daily"}
-                onChange={() => setSelectedDataType("daily")}
+              <Checkbox
+                checked={selectedDataType.includes("daily")}
+                onChange={() => handleTypeChange("daily")}
                 content="Суточные файлы"
-              />
-              <RadioButton
-                name="dataType"
-                value="hourly"
-                checked={selectedDataType === "hourly"}
-                onChange={() => setSelectedDataType("hourly")}
-                content="Часовые файлы"
               />
             </div>
             <div className="stations__criteria-time">
@@ -88,23 +86,6 @@ function Stations() {
                   />
                 </label>
               </div>
-            </div>
-            <div className="stations__criteria-request">
-              <h3 className="stations__criteria-title">Тип запроса</h3>
-              <RadioButton
-                name="requestType"
-                value="save"
-                checked={selectedRequestType === "save"}
-                onChange={() => setSelectedRequestType("save")}
-                content={'Запрос на сохранение данных'}
-              />
-              <RadioButton
-                name="requestType"
-                value="view"
-                checked={selectedRequestType === "view"}
-                onChange={() => setSelectedRequestType("view")}
-                content={'Запрос на просмотр статистики'}
-              />
             </div>
           </div>
           <div className="stations__buttons">
