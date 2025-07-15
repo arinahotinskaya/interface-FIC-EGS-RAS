@@ -1,21 +1,21 @@
 export const position = [68.524, 105.3188];
 
 export const stations = [
-  { name: "arti", coords: [56.43, 58.56] },
-  { name: "artu", coords: [56.43, 58.56] },
-  { name: "irkm", coords: [52.219, 104.316] },
-  { name: "irkt", coords: [52.219, 104.316] },
-  { name: "mag0", coords: [59.576, 150.77] },
-  { name: "mobj", coords: [55.115, 36.57] },
-  { name: "mobk", coords: [55.115, 36.57] },
-  { name: "mobn", coords: [55.115, 36.57] },
-  { name: "nril", coords: [69.362, 88.36] },
-  { name: "pets", coords: [53.023, 158.65] },
-  { name: "tixi", coords: [71.634, 128.866] },
-  { name: "tixj", coords: [71.634, 128.866] },
-  { name: "yakt", coords: [62.031, 129.68] },
-  { name: "yssk", coords: [47.03, 142.717] },
-]; // Координаты взяты из IGS
+  { name: "arti", coords: [56.43, 58.56], receiver: "", antenna: "", satelliteSystem: "" },
+  { name: "artu", coords: [56.43, 58.56], receiver: "JAVAD TRE_G3TH DELTA", antenna: "ASH700936D_M", satelliteSystem: "GPS+GLO" },
+  { name: "irkm", coords: [52.219, 104.316], receiver: "JAVAD TRE_G3TH DELTA", antenna: "AOAD/M_T", satelliteSystem: "GPS+GLO" },
+  { name: "irkt", coords: [52.219, 104.316], receiver: "", antenna: "", satelliteSystem: "" },
+  { name: "mag0", coords: [59.576, 150.77], receiver: "ASHTECH Z-XII3", antenna: "ASH700936D_M", satelliteSystem: "GPS" },
+  { name: "mobj", coords: [55.115, 36.57], receiver: "JPS LEGACY", antenna: "JPSREGANT_SD_E1", satelliteSystem: "GPS+GLO" },
+  { name: "mobk", coords: [55.115, 36.57], receiver: "JPS EGGDT", antenna: "JPSREGANT_SD_E1", satelliteSystem: "GPS+GLO" },
+  { name: "mobn", coords: [55.115, 36.57], receiver: "ASHTECH UZ-12", antenna: "ASH701945C_M", satelliteSystem: "GPS" },
+  { name: "nril", coords: [69.362, 88.36], receiver: "ASHTECH UZ-12", antenna: "ASH701945B_M", satelliteSystem: "GPS" },
+  { name: "pets", coords: [53.023, 158.65], receiver: "JAVAD TRE_G3TH DELTA", antenna: "ASH701933B_M", satelliteSystem: "GPS+GLO" },
+  { name: "tixi", coords: [71.634, 128.866], receiver: "JPS EGGDT", antenna: "TPSCR3_GGD", satelliteSystem: "GPS+GLO" },
+  { name: "tixj", coords: [71.634, 128.866], receiver: "", antenna: "", satelliteSystem: "" },
+  { name: "yakt", coords: [62.031, 129.68], receiver: "JAVAD TRE_3N DELTA", antenna: "ASH701933B_M", satelliteSystem: "GPS+GLO" },
+  { name: "yssk", coords: [47.03, 142.717], receiver: "JAVAD TRE_3N DELTA", antenna: "ASH701933B_M", satelliteSystem: "GPS+GLO" },
+]; // Данные взяты из IGS
 
 export const stationsName = [
   "arti",

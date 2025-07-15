@@ -1,0 +1,33 @@
+@import '../../styles/variables.scss';
+
+.cards__station {
+    display: flex;
+    justify-content: flex-start;
+    
+    &-container {
+        margin-top: 5vh;
+        margin-left: 29px;
+        padding: 30px 50px;
+        background-color: $main-color;
+        border-radius: $radius-m;
+        box-shadow: 8px 8px 6px $shadow-black;
+    }
+
+    &__title {
+        margin-bottom: 5vh;
+        text-align: center;
+        font-weight: $font-weight-bold;
+        font-size: $font-size-s;
+        color: $white-color;
+    }
+
+    &__description {
+        font-weight: $font-weight-regular;
+        font-size: $font-size-xs;
+        color: $white-color;
+        
+        &:not(:last-child) {
+            margin-bottom: 2.5vh;
+        }
+    }
+}

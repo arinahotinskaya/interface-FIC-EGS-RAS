@@ -1,16 +1,35 @@
 import "./Cards.scss"
+import { useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
 import russianBorder from '../../constants/russian.json';
 import {position, stations} from '../../constants/constants';
+import StationCard from "../StationCard/StationCard";
 
 
 function Cards() {
+  const [selectedStation, setSelectedStation] = useState(null);
+
+  const stationsByCoords = stations.reduce((acc, station) => {
+    const key = station.coords.join(',');
+    if (!acc[key]) acc[key] = [];
+    acc[key].push(station);
+    return acc;
+  }, {});
+
+  const handleClick = (station) => {
+    if (selectedStation && selectedStation.name === station.name) {
+      setSelectedStation(null);
+    } else {
+      setSelectedStation(station);
+    }
+  };
+
   return (
     <>
       <section className="cards">
           <div className="cards__container">
-              <h2 className="cards__title">Карта сети актуальных станций ГС РАН</h2>
+              <h2 className="cards__title">Карта сети актуальных станций ФИЦ ЕГС РАН</h2>
               <div className="cards__map-container">
                 <div className="cards__map">
                   <MapContainer center={position} zoom={2} style={{height: '100%', width: '100%'}} attributionControl={false}>
@@ -19,15 +38,23 @@ function Cards() {
                       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
                     <GeoJSON data={russianBorder.features} className="cards__map--border" style={{ color: 'gray', weight: 1.25, fill: true }}/>
-                    {stations.map(station => {
+                    {Object.entries(stationsByCoords).map(([coordsStr, stationsGroup]) => {
+                      const coords = coordsStr.split(',').map(Number);
                       return (
-                        <Marker key={station.name} position={station.coords}>
-                          <Popup>
-                            <h3>Станция: {station.name.toUpperCase()}</h3>
-                            <p>Координаты: {station.coords.join(', ')}</p>
+                        <Marker key={coordsStr} position={coords}>
+                          <Popup className="cards__map-popup">
+                            {stationsGroup.map(station => (
+                              <div key={station.name}>
+                                <h3 className="cards__map-popup__title"><strong>{station.name.toUpperCase()}</strong></h3>
+                                <p className="cards__map-popup__description"><strong>Координаты (Latitude, Longitude):</strong> {station.coords.join(', ')}</p>
+                                {station.receiver && <p className="cards__map-popup__description"><strong>Приемник (Receiver):</strong> {station.receiver}</p>}
+                                {station.antenna && <p className="cards__map-popup__description"><strong>Антенна (Antenna):</strong> {station.antenna}</p>}
+                                {station.satelliteSystem && <p className="cards__map-popup__description"><strong>Спутниковая система (Satellite system):</strong> {station.satelliteSystem}</p>}
+                              </div>
+                            ))}
                           </Popup>
                         </Marker>
-                      )
+                      );
                     })}
                   </MapContainer>
                 </div>
@@ -35,7 +62,11 @@ function Cards() {
                   <ul className="cards__map-info-list">
                     {stations.map(station => {
                       return (
-                        <li className="cards__map-info-item" key={station.name}>
+                        <li 
+                          className="cards__map-info-item" 
+                          key={station.name} 
+                          onClick={() => handleClick(station)}
+                        >
                           <span className="cards__map-info-item-title">{station.name.toUpperCase()}</span>
                         </li>
                       );
@@ -43,6 +74,7 @@ function Cards() {
                   </ul>
                 </div>
               </div>
+              {selectedStation && <StationCard station={selectedStation} />}
           </div>
       </section>
     </>
