@@ -1,6 +1,7 @@
 @import '../../styles/variables.scss';
 
 .cards {
+    margin-bottom: 5vh;
 
     &__title {
         margin-top: 39px;
@@ -36,7 +37,7 @@
             cursor: pointer;
 
             &-title {
-                font-size: $font-size-xs;
+                font-size: $font-size-s;
                 -webkit-user-select: none; /* Safari */
                 -moz-user-select: none; /* Firefox */
                 -ms-user-select: none; /* IE 10+ */
@@ -50,6 +51,20 @@
 
         &-title {
             font-size: $font-size-s;
+        }
+    }
+}
+
+.leaflet-popup-content {
+    .cards__map-popup__title {
+        margin-bottom: 0.5rem;
+    }
+
+    .cards__map-popup__description {
+        margin: 0;
+
+        &:last-child {
+            margin-bottom: 20px;
         }
     }
 }

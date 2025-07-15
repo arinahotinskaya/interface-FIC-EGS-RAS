@@ -1,12 +1,11 @@
 import Cards from "../../components/Cards/Cards";
-import ArchiveAccess from '../../components/ArchiveAccess/ArchiveAccess'
+import StationCard from "../../components/StationCard/StationCard";
 
 function StationsPage() {
   return (
     <>
       <section className="stations-page">
         <Cards />
-        <ArchiveAccess />
       </section>
     </>
   );
