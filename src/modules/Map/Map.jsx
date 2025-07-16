@@ -1,4 +1,4 @@
-import "./Cards.scss"
+import "./Map.scss"
 import { useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
@@ -9,7 +9,7 @@ import { customGreenMarkerIcon } from "../../components/CustomMarker/CustomMarke
 import { getDataIGS } from "../../services/dataService";
 
 
-function Cards() {
+function Map() {
   const [stations, setStations] = useState ([]);
   const [selectedStation, setSelectedStation] = useState(null);
 
@@ -97,12 +97,12 @@ function Cards() {
                     })}
                   </ul>
                 </div>
+                {selectedStation && <StationCard station={selectedStation} />}
               </div>
-              {selectedStation && <StationCard station={selectedStation} />}
           </div>
       </section>
     </>
   )
 }
 
-export default Cards
+export default Map
