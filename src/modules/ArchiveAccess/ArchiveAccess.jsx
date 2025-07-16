@@ -1,13 +1,13 @@
 import './ArchiveAccess.scss'
-import { stationsName } from '../../constants/constants';
+import { allStationNames } from '../../constants/constants';
 import { useState } from 'react';
-import Checkbox from '../CustomInput/Checkbox'
-import RadioButton from '../CustomInput/Radiobutton';
+import Checkbox from '../../components/CustomInput/Checkbox'
+import RadioButton from '../../components/CustomInput/Radiobutton';
 import Button from '../../components/Button/Button';
 
 function Stations() {
   const [selectedStations, setSelectedStations] = useState([]);
-  const allSelected = selectedStations.length === stationsName.length;
+  const allSelected = selectedStations.length === allStationNames.length;
   const [selectedDataType, setSelectedDataType] = useState([]);
   // const [year, setYear] = useState('');
   // const [day, setDay] = useState('');
@@ -32,7 +32,7 @@ function Stations() {
     if (allSelected) {
       setSelectedStations([]);
     } else {
-      setSelectedStations(stationsName);
+      setSelectedStations(allStationNames);
     }
   }
 
@@ -45,7 +45,7 @@ function Stations() {
             <h3 className="stations__list-title">Список станций</h3>
             <div className="stations__list-radio">
               {
-                stationsName.map(station => {
+                allStationNames.map(station => {
                   return <Checkbox 
                     key={station} 
                     checked={selectedStations.includes(station)} 

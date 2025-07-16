@@ -1,25 +1,48 @@
 import "./Cards.scss"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
 import russianBorder from '../../constants/russian.json';
-import { position, stations } from '../../constants/constants';
+import { position, activeStations } from '../../constants/constants';
 import StationCard from "../StationCard/StationCard";
-import { customGreenMarkerIcon } from "../CustomMarker/CustomMarker";
+import { customGreenMarkerIcon } from "../../components/CustomMarker/CustomMarker";
+import { getDataIGS } from "../../services/dataService";
 
 
 function Cards() {
+  const [stations, setStations] = useState ([]);
   const [selectedStation, setSelectedStation] = useState(null);
 
+  useEffect(() => {
+    const dataIGS = async() => {
+      const jsonIGS = await(getDataIGS());
+      const filteredStations = activeStations.map(station => {
+        const igsData = jsonIGS[station.Name.toUpperCase() + '00RUS'];
+        if(igsData) {
+          return {
+            ...station,
+            ...igsData
+          };
+        }
+        return station;
+      });
+      setStations(filteredStations);
+    }
+
+    dataIGS();
+  }, []);
+
+  console.log(stations)
+
   const stationsByCoords = stations.reduce((acc, station) => {
-    const key = station.coords.join(',');
+    const key = station.Latitude + ',' + station.Longitude;
     if (!acc[key]) acc[key] = [];
     acc[key].push(station);
     return acc;
   }, {});
 
   const handleClick = (station) => {
-    if (selectedStation && selectedStation.name === station.name) {
+    if (selectedStation && selectedStation.Name === station.Name) {
       setSelectedStation(null);
     } else {
       setSelectedStation(station);
@@ -45,12 +68,12 @@ function Cards() {
                         <Marker key={coordsStr} position={coords} icon={customGreenMarkerIcon}>
                           <Popup className="cards__map-popup">
                             {stationsGroup.map(station => (
-                              <div key={station.name}>
-                                <h3 className="cards__map-popup__title"><strong>{station.name.toUpperCase()}</strong></h3>
-                                <p className="cards__map-popup__description"><strong>Координаты (Latitude, Longitude):</strong> {station.coords.join(', ')}</p>
-                                {station.receiver && <p className="cards__map-popup__description"><strong>Приемник (Receiver):</strong> {station.receiver}</p>}
-                                {station.antenna && <p className="cards__map-popup__description"><strong>Антенна (Antenna):</strong> {station.antenna}</p>}
-                                {station.satelliteSystem && <p className="cards__map-popup__description"><strong>Спутниковая система (Satellite system):</strong> {station.satelliteSystem}</p>}
+                              <div key={station.Name}>
+                                <h3 className="cards__map-popup__title"><strong>{station.Name.toUpperCase()}</strong></h3>
+                                <p className="cards__map-popup__description"><strong>Координаты (Latitude, Longitude):</strong> {station.Latitude + ', ' + station.Longitude}</p>
+                                {station.Receiver && <p className="cards__map-popup__description"><strong>Приемник (Receiver):</strong> {station.Receiver.Name}</p>}
+                                {station.Antenna && <p className="cards__map-popup__description"><strong>Антенна (Antenna):</strong> {station.Antenna.Name}</p>}
+                                {station.Receiver && <p className="cards__map-popup__description"><strong>Спутниковая система (Satellite system):</strong> {station.Receiver.SatelliteSystem}</p>}
                               </div>
                             ))}
                           </Popup>
@@ -65,10 +88,10 @@ function Cards() {
                       return (
                         <li 
                           className="cards__map-info-item" 
-                          key={station.name} 
+                          key={station.Name} 
                           onClick={() => handleClick(station)}
                         >
-                          <span className="cards__map-info-item-title">{station.name.toUpperCase()}</span>
+                          <span className="cards__map-info-item-title">{station.Name.toUpperCase()}</span>
                         </li>
                       );
                     })}

@@ -1,5 +1,5 @@
-import Cards from "../../components/Cards/Cards";
-import StationCard from "../../components/StationCard/StationCard";
+import Cards from "../../modules/Cards/Cards";
+import StationCard from "../../modules/StationCard/StationCard";
 
 function StationsPage() {
   return (
