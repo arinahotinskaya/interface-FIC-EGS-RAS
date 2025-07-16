@@ -12,24 +12,27 @@
 
     &__map {
         height: 50vh;
-        width: 50%;
+        width: 100%;
 
         &-container {
-            display: flex;
-            column-gap: 50px;
-            align-items: center;
+            // display: flex;
+            // column-gap: 50px;
+            display: grid;
+            grid-template: auto auto / 50vw auto;
+            gap: 2em;
             margin: 39px 29px 0;
         }
 
         &-info {
-            max-width: 400px;
+            max-width: 100%;
+            grid-row-start: 2;
         }
 
         &-info-list {
             display: flex;
             flex-wrap: wrap;
             justify-content: left;
-            gap: 45px;
+            gap: 15px;
         }
 
         &-info-item {

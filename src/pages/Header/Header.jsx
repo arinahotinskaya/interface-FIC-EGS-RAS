@@ -11,7 +11,7 @@ function Header() {
           </div>
           <div className="header__nav-container">
             <nav className="header__nav">
-              <Link to="/info-page" className="header__link">Информация</Link>
+              <Link to="/info" className="header__link">Информация</Link>
               <Link to="/stations-page" className="header__link">Станции</Link>
               <Link to="/access-page" className="header__link">Доступ к данным</Link>
             </nav>

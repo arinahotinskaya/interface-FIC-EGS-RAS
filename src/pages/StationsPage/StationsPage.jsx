@@ -1,11 +1,10 @@
-import Cards from "../../modules/Cards/Cards";
-import StationCard from "../../modules/StationCard/StationCard";
+import Map from "../../modules/Map/Map";
 
 function StationsPage() {
   return (
     <>
       <section className="stations-page">
-        <Cards />
+        <Map />
       </section>
     </>
   );
