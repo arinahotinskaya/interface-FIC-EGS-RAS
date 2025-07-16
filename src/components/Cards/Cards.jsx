@@ -3,8 +3,9 @@ import { useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
 import russianBorder from '../../constants/russian.json';
-import {position, stations} from '../../constants/constants';
+import { position, stations } from '../../constants/constants';
 import StationCard from "../StationCard/StationCard";
+import { customGreenMarkerIcon } from "../CustomMarker/CustomMarker";
 
 
 function Cards() {
@@ -41,7 +42,7 @@ function Cards() {
                     {Object.entries(stationsByCoords).map(([coordsStr, stationsGroup]) => {
                       const coords = coordsStr.split(',').map(Number);
                       return (
-                        <Marker key={coordsStr} position={coords}>
+                        <Marker key={coordsStr} position={coords} icon={customGreenMarkerIcon}>
                           <Popup className="cards__map-popup">
                             {stationsGroup.map(station => (
                               <div key={station.name}>
