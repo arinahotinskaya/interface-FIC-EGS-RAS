@@ -3,7 +3,7 @@ import { stationsName } from '../../constants/constants';
 import { useState } from 'react';
 import Checkbox from '../CustomInput/Checkbox'
 import RadioButton from '../CustomInput/Radiobutton';
-import Button from '../Button/Button';
+import Button from '../../components/Button/Button';
 
 function Stations() {
   const [selectedStations, setSelectedStations] = useState([]);
