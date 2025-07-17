@@ -15,7 +15,7 @@ function TabPhoto({ station }) {
   const photos = stationPhotos[station.Name.toLowerCase()] || [];
   const [current, setCurrent] = useState(0);
 
-  if (photos.length === 0) return <div className='cards__station__error'>Нет фото для этой станции.</div>;
+  if (photos.length === 0) return <div className='cards__station--warning'>Пока нет фото для этой станции</div>;
 
   const prev = () => setCurrent((current - 1 + photos.length) % photos.length);
   const next = () => setCurrent((current + 1) % photos.length);

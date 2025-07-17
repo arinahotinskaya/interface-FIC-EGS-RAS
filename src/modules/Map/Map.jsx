@@ -32,8 +32,6 @@ function Map() {
     dataIGS();
   }, []);
 
-  console.log(stations)
-
   const stationsByCoords = stations.reduce((acc, station) => {
     const key = station.Latitude + ',' + station.Longitude;
     if (!acc[key]) acc[key] = [];
