@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@use '../../styles/variables.scss';
 
 .cards {
     margin-bottom: 5vh;
@@ -6,8 +6,8 @@
     &__title {
         margin-top: 39px;
         margin-left: 29px;
-        font-weight: $font-weight-bold;
-        font-size: $font-size-m;
+        font-weight: variables.$font-weight-bold;
+        font-size: variables.$font-size-m;
     }
 
     &__map {
@@ -15,12 +15,16 @@
         width: 100%;
 
         &-container {
-            // display: flex;
-            // column-gap: 50px;
             display: grid;
             grid-template: auto auto / 50vw auto;
             gap: 2em;
             margin: 39px 29px 0;
+        }
+
+        &-popup {
+            max-height: 250px;
+            overflow-y: auto;
+            border-radius: variables.$radius-s;
         }
 
         &-info {
@@ -40,7 +44,7 @@
             cursor: pointer;
 
             &-title {
-                font-size: $font-size-s;
+                font-size: variables.$font-size-s;
                 -webkit-user-select: none; /* Safari */
                 -moz-user-select: none; /* Firefox */
                 -ms-user-select: none; /* IE 10+ */
@@ -53,7 +57,7 @@
         }
 
         &-title {
-            font-size: $font-size-s;
+            font-size: variables.$font-size-s;
         }
     }
 }

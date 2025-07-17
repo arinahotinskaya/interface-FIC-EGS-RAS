@@ -1,5 +1,5 @@
- @import '../../styles/mixins';
- @import '../../styles/variables.scss';
+ @use '../../styles/mixins';
+ @use '../../styles/variables.scss';
 
 .login,
 .reg {
@@ -12,16 +12,16 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: $main-color;
-        border-radius: $radius-m;
-        box-shadow: 8px 8px 6px $shadow-black;
+        background-color: variables.$main-color;
+        border-radius: variables.$radius-m;
+        box-shadow: 8px 8px 6px variables.$shadow-black;
     }
 
     &__title {
-        color: $white-color;
-        font-size: $font-size-l;
-        font-weight: $font-weight-bold;
-        text-shadow: 4px 4px 6px $shadow-white;
+        color: variables.$white-color;
+        font-size: variables.$font-size-l;
+        font-weight: variables.$font-weight-bold;
+        text-shadow: 4px 4px 6px variables.$shadow-white;
     }
 
     &__form {
@@ -38,18 +38,18 @@
             padding: 4px 0 4px 16px;
             height: 36px;
             border: none;
-            border-radius: $radius-s;
-            color: $black-color;
-            font-size: $font-size-s;
+            border-radius: variables.$radius-s;
+            color: variables.$black-color;
+            font-size: variables.$font-size-s;
 
             &::placeholder {
-                color: $placeholder-main;
-                font-size: $font-size-s;
+                color: variables.$placeholder-main;
+                font-size: variables.$font-size-s;
             }
         }
     }
 
     &__button {
-        @include button($black-color, $black-color, $white-color);
+        @include mixins.button(variables.$black-color, variables.$black-color, variables.$white-color);
     }
 }

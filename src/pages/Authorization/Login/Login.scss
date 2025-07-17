@@ -1,7 +1,7 @@
-@import '../../../styles/mixins.scss';
+@use '../../../styles/mixins.scss';
 
 .login {
     &__container {
-        @include auth-container(150px, 30%, 344px);
+        @include mixins.auth-container(150px, 30%, 344px);
     }
 }

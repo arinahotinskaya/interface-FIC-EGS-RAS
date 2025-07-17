@@ -1,0 +1,24 @@
+@use '../../../styles/variables.scss';
+
+.cards__station {
+    &__slider {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__button {
+        margin: 0 5vh;
+        background-color: transparent;
+        border: none;
+        color: variables.$white-color;
+        transform: scale(3);
+    }
+
+    &__counter {
+        text-align: center;
+        margin-top: 5px;
+        font-size: variables.$font-size-xs;
+        color: variables.$white-color;
+    }
+}
