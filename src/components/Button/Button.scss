@@ -1,11 +1,11 @@
-@import '../../styles/variables.scss';
+@use '../../styles/variables.scss';
 
 .button {
     padding: 10px 27px;
-    border-radius: $radius-s;
-    font-size: $font-size-s;
+    border-radius: variables.$radius-s;
+    font-size: variables.$font-size-s;
     cursor: pointer;
-    transition: $transition-fast transform;
+    transition: variables.$transition-fast transform;
 
     &:active {
         transform: scale(0.95);

@@ -58,8 +58,8 @@ function Map() {
                 <div className="cards__map">
                   <MapContainer center={position} zoom={2} style={{height: '100%', width: '100%'}} attributionControl={false}>
                     <TileLayer
-                      attribution='&amp;copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                      attribution='&copy; <a href="https://carto.com/">CARTO</a>'
+                      url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
                     />
                     <GeoJSON data={russianBorder.features} className="cards__map--border" style={{ color: 'gray', weight: 1.25, fill: true }}/>
                     {Object.entries(stationsByCoords).map(([coordsStr, stationsGroup]) => {
