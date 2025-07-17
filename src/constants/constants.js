@@ -26,10 +26,10 @@ export const allStationNames = [
 ];
 
 export const activeStations = [
-  { Name: "arti", Latitude: "56.430", Longitude: "58.560" },
+  // { Name: "arti", Latitude: "56.430", Longitude: "58.560" },
   { Name: "artu" },
   { Name: "irkm" },
-  { Name: "irkt", Latitude: "52.219", Longitude: "104.316" },
+  // { Name: "irkt", Latitude: "52.219", Longitude: "104.316" },
   { Name: "mag0" },
   { Name: "mobj" },
   { Name: "mobk" },
@@ -37,7 +37,7 @@ export const activeStations = [
   { Name: "nril" },
   { Name: "pets" },
   { Name: "tixi" },
-  { Name: "tixj", Latitude: "71.634", Longitude: "128.866" },
+  // { Name: "tixj", Latitude: "71.634", Longitude: "128.866" },
   { Name: "yakt" },
   { Name: "yssk" },
 ];
