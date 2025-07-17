@@ -14,12 +14,12 @@ function App() {
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<Navigate to="/info" replace />} />
-        <Route path='/info' element={<InfoPage />} />
-        <Route path="/stations-page" element={<StationsPage />} />
-        <Route path="/access-page" element={<AccessPage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/registration" element={<Registration />} />
+        <Route path="/" element={<Navigate to="/Информация" replace />} />
+        <Route path='/Информация' element={<InfoPage />} />
+        <Route path="/Станции" element={<StationsPage />} />
+        <Route path="/Доступ" element={<AccessPage />} />
+        <Route path="/Логин" element={<Login />} />
+        <Route path="/Регистрация" element={<Registration />} />
       </Routes>
       <Footer />
     </>
