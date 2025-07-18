@@ -68,6 +68,7 @@ function Map() {
                             {stationsGroup.map(station => (
                               <div key={station.Name}>
                                 <h3 className="cards__map-popup__title"><strong>{station.Name.toUpperCase()}</strong></h3>
+                                <p className="cards__map-popup__description"><strong>Местоположение</strong>: {station.Region}</p>
                                 <p className="cards__map-popup__description"><strong>Координаты (Latitude, Longitude):</strong> {station.Latitude + ', ' + station.Longitude}</p>
                                 {station.Receiver && <p className="cards__map-popup__description"><strong>Приемник (Receiver):</strong> {station.Receiver.Name}</p>}
                                 {station.Antenna && <p className="cards__map-popup__description"><strong>Антенна (Antenna):</strong> {station.Antenna.Name}</p>}
