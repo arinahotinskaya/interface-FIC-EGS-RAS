@@ -8,11 +8,12 @@
     }
 
     &__button {
-        margin: 0 5vh;
-        background-color: transparent;
-        border: none;
-        color: variables.$white-color;
-        transform: scale(3);
+        margin: 0 2vh;
+        transition: variables.$transition-fast transform;
+
+        &:active {
+            transform: scale(0.9);
+        }
     }
 
     &__counter {

@@ -1,5 +1,5 @@
 import './TabPhoto.scss'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const mobj = import.meta.glob('../../../assets/receivers/mobj/*.{jpg,JPG,png,svg}', { eager: true });
 const mobk = import.meta.glob('../../../assets/receivers/mobk/*.{jpg,JPG,png,svg}', { eager: true });
@@ -15,6 +15,10 @@ function TabPhoto({ station }) {
   const photos = stationPhotos[station.Name.toLowerCase()] || [];
   const [current, setCurrent] = useState(0);
 
+  useEffect(() => {
+    setCurrent(0);
+  }, [station]);
+
   if (photos.length === 0) return <div className='cards__station--warning'>Пока нет фото для этой станции</div>;
 
   const prev = () => setCurrent((current - 1 + photos.length) % photos.length);
@@ -23,11 +27,11 @@ function TabPhoto({ station }) {
   return (
     <>
       <div className="cards__station__slider">
-        <button className="cards__station__button" onClick={prev}>←</button>
+        {photos.length !== 1 && <img src="src/assets/icon-slide-left.png" className="cards__station__button" onClick={prev} alt="" width="40" height="40" />}
         <img className="cards__station__photo" src={photos[current]} alt={`Фото ${current + 1}`} style={{ maxWidth: '75%'}}/>
-        <button className="cards__station__button" onClick={next}>→</button>
+        {photos.length !== 1 && <img src="src/assets/icon-slide-right.png" className="cards__station__button" onClick={next} alt="" width="40" height="40"/>}
       </div>
-      <div className="cards__station__counter" >{current + 1} / {photos.length}</div>
+      {photos.length !== 1 && <div className="cards__station__counter" >{current + 1} / {photos.length}</div>}
     </>
   );
 }
