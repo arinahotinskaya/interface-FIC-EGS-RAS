@@ -8,7 +8,7 @@ import TabReceiver from './StationCardTabs/TabReceiver';
 
 function StationCard({ station }) {
   const [tab, setTab] = useState('overview');
-
+  
   let content;
   if (tab === 'overview') content = <TabOverview station={station} />;
   else if (tab === 'antenna') content = <TabAntenna station={station} />;
