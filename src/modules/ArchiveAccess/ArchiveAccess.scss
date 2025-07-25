@@ -20,9 +20,6 @@
     }
 
     &__criteria {
-        width: 100%;
-        display: flex;
-        justify-content: space-around;
 
         &-data,
         &-time,
@@ -34,8 +31,7 @@
 
         &-inputs {
             display: flex;
-            flex-direction: column;
-            row-gap: 8px;
+            column-gap: 4px;
         }
 
         &-label {

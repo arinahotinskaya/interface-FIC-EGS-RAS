@@ -2,15 +2,15 @@ import './ArchiveAccess.scss'
 import { allStationNames } from '../../constants/constants';
 import { useState } from 'react';
 import Checkbox from '../../components/CustomInput/Checkbox'
-import RadioButton from '../../components/CustomInput/Radiobutton';
+// import RadioButton from '../../components/CustomInput/Radiobutton';
 import Button from '../../components/Button/Button';
 
 function Stations() {
   const [selectedStations, setSelectedStations] = useState([]);
   const allSelected = selectedStations.length === allStationNames.length;
   const [selectedDataType, setSelectedDataType] = useState([]);
-  // const [year, setYear] = useState('');
-  // const [day, setDay] = useState('');
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());   
 
   function handleStationChange(station) {
     setSelectedStations(prev =>
@@ -36,28 +36,47 @@ function Stations() {
     }
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    const formData = {
+      stations: selectedStations,
+      type: selectedDataType,
+      startDate,
+      endDate
+    };
+    const jsonData = JSON.stringify(formData, null, 2);
+    console.log(jsonData); // Дописать обращение к бекенду
+  }
+
+  function handleReset() {
+    setSelectedStations([]);
+    setSelectedDataType([]);
+    setStartDate('');
+    setEndDate('');
+  }
+
   return(
     <>
       <section className="stations">
-        <div className="stations__container">
-          <h2 className="stations__title">Доступ к архиву данных ГНСС-наблюдений</h2>
-          <div className='stations__list'>
-            <h3 className="stations__list-title">Список станций</h3>
-            <div className="stations__list-radio">
-              {
-                allStationNames.map(station => {
-                  return <Checkbox 
-                    key={station} 
-                    checked={selectedStations.includes(station)} 
-                    onChange={() => handleStationChange(station)} 
-                    content={station.toUpperCase()}
-                  />
-                })
-              }
-              <Checkbox checked={allSelected} onChange={handleSelectAll} content={'Выбрать все'}/>
+        <form onSubmit={handleSubmit} onReset={handleReset}>
+          <div className="stations__container">
+            <h2 className="stations__title">Доступ к архиву данных ГНСС-наблюдений</h2>
+            <div className='stations__list'>
+              <h3 className="stations__list-title">Список станций</h3>
+              <div className="stations__list-radio">
+                {
+                  allStationNames.map(station => {
+                    return <Checkbox 
+                      key={station} 
+                      checked={selectedStations.includes(station)} 
+                      onChange={() => handleStationChange(station)} 
+                      content={station.toUpperCase()}
+                    />
+                  })
+                }
+                <Checkbox checked={allSelected} onChange={handleSelectAll} content={'Выбрать все'}/>
+              </div>
             </div>
-          </div>
-          <div className='stations__criteria'>
             <div className="stations__criteria-data">
               <h3 className="stations__criteria-title">Тип данных</h3>
               <Checkbox
@@ -70,29 +89,30 @@ function Stations() {
               <h3 className="stations__criteria-title">Временной запрос</h3>
               <div className="stations__criteria-inputs">
                 <label className="stations__criteria-label">
-                  Год
                   <input
-                    type="text"
-                    placeholder="Например, 2020 или 2020-2023"
+                    type="date"
+                    value={startDate}
+                    onChange={e => setStartDate(e.target.value)}
                     className="stations__criteria-input"
                   />
                 </label>
                 <label className="stations__criteria-label">
-                  День
+                  –
                   <input
-                    type="text"
-                    placeholder="Например, 15 или 10-20"
+                    type="date"
+                    value={endDate}
+                    onChange={e => setEndDate(e.target.value)}
                     className="stations__criteria-input"
                   />
                 </label>
               </div>
             </div>
+            <div className="stations__buttons">
+              <Button type="submit" aim="stations" content={'посмотреть'}></Button>
+              <Button type="reset" aim="stations" content={'очистить'}></Button>
+            </div>
           </div>
-          <div className="stations__buttons">
-            <Button type="submit" aim="stations" content={'посмотреть'}></Button>
-            <Button type="reset" aim="stations" content={'очистить'}></Button>
-          </div>
-        </div>
+        </form>
       </section>
     </>
   );
