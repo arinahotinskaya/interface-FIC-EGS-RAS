@@ -1,13 +1,23 @@
+import axios from "axios";
+
 // Для разработки
 export const getDataIGS = async () => {
-  const data = await fetch("/igs-api/pub/station/general/IGSNetwork.json");
-  const json = await data.json();
-  return json;
+  return await axios.get("/igs-api/pub/station/general/IGSNetwork.json")
+    .then(function (response) {
+      return response.data
+    })
+    .catch(function (error) {
+      throw new Error(error);
+    });
 };
 
 // Для продакшена
 // export const getDataIGS = async () => {
-//   const data = await fetch('https://files.igs.org/pub/station/general/IGSNetwork.json');
-//   const json = await data.json();
-//   return json;
+//     return await axios.get("/igs-api/pub/station/general/IGSNetwork.json")
+//     .then(function (response) {
+//       return response.data
+//     })
+//     .catch(function (error) {
+//       throw new Error(error);
+//     });
 // };
