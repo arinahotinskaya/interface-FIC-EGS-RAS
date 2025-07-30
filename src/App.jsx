@@ -15,12 +15,12 @@ function App() {
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<Navigate to="/Информация" replace />} />
-        <Route path='/Информация' element={<InfoPage />} />
-        <Route path="/Станции" element={<StationsPage />} />
-        <Route path="/Доступ" element={<AccessPage />} />
-        <Route path="/Логин" element={<Login />} />
-        <Route path="/Регистрация" element={<Registration />} />
+        <Route path="/" element={<Navigate to="/Information" replace />} />
+        <Route path='/Information' element={<InfoPage />} />
+        <Route path="/Stations" element={<StationsPage />} />
+        <Route path="/Access" element={<AccessPage />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/Registration" element={<Registration />} />
       </Routes>
       <Footer />
     </>
