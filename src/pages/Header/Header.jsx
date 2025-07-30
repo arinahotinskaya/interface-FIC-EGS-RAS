@@ -11,14 +11,14 @@ function Header() {
           </div>
           <div className="header__nav-container">
             <nav className="header__nav">
-              <Link to="/Информация" className="header__link">Информация</Link>
-              <Link to="/Станции" className="header__link">Станции</Link>
-              <Link to="/Доступ" className="header__link">Доступ к данным</Link>
+              <Link to="/Information" className="header__link">Информация</Link>
+              <Link to="/Stations" className="header__link">Станции</Link>
+              <Link to="/Access" className="header__link">Доступ к данным</Link>
             </nav>
             <div className="header__auth">
-              <Link to="/Логин" className="header__auth-link">Вход</Link>
+              <Link to="/Login" className="header__auth-link">Вход</Link>
               <span className="header__auth-slash">/</span>
-              <Link to="/Регистрация" className="header__auth-link">Регистрация</Link>
+              <Link to="/Registration" className="header__auth-link">Регистрация</Link>
             </div>
           </div>
         </div>
