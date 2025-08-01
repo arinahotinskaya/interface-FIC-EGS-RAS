@@ -1,4 +1,4 @@
-import ArchiveAccess from '../../modules/ArchiveAccess/ArchiveAccess'
+import ArchiveAccess from '@modules/ArchiveAccess/ArchiveAccess'
 
 function AccessPage() {
   return (

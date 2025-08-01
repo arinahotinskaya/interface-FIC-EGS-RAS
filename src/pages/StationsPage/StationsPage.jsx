@@ -1,4 +1,4 @@
-import Map from "../../modules/Map/Map";
+import Map from "@modules/Map/Map";
 
 function StationsPage() {
   return (
