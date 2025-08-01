@@ -1,9 +1,9 @@
 import './ArchiveAccess.scss'
-import { allStationNames } from '../../constants/constants';
+import { allStationNames } from '@constants/constants';
 import { useState } from 'react';
-import Checkbox from '../../components/CustomInput/Checkbox'
+import Checkbox from '@components/CustomInput/Checkbox'
 // import RadioButton from '../../components/CustomInput/Radiobutton';
-import Button from '../../components/Button/Button';
+import Button from '@components/Button/Button';
 
 function Stations() {
   const [selectedStations, setSelectedStations] = useState([]);

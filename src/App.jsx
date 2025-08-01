@@ -1,13 +1,13 @@
 import {Route, Routes, Navigate} from 'react-router-dom'
-import Header from "./pages/Header/Header"
-import Footer from "./pages/Footer/Footer"
+import Header from "@pages/Header/Header"
+import Footer from "@pages/Footer/Footer"
 
-import InfoPage from "./pages/InfoPage/InfoPage"
-import StationsPage from "./pages/StationsPage/StationsPage"
-import AccessPage from "./pages/AccessPage/AccessPage"
-import Login from "./pages/Authorization/Login/Login"
-import Registration from "./pages/Authorization/Registration/Registration"
-import "./pages/Authorization/Authorization.scss"
+import InfoPage from "@pages/InfoPage/InfoPage"
+import StationsPage from "@pages/StationsPage/StationsPage"
+import AccessPage from "@pages/AccessPage/AccessPage"
+import Login from "@pages/Authorization/Login/Login"
+import Registration from "@pages/Authorization/Registration/Registration"
+import "@pages/Authorization/Authorization.scss"
 
 
 function App() {

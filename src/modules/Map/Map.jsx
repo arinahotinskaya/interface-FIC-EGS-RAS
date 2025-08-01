@@ -2,11 +2,11 @@ import "./Map.scss"
 import { useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
-import russianBorder from '../../constants/russian.json';
-import { position, activeStations } from '../../constants/constants';
-import StationCard from "../StationCard/StationCard";
-import { customGreenMarkerIcon } from "../../components/CustomMarker/CustomMarker";
-import { getDataIGS } from "../../services/dataService";
+import russianBorder from '@constants/russian.json';
+import { position, activeStations } from '@constants/constants';
+import StationCard from "@modules/StationCard/StationCard";
+import { customGreenMarkerIcon } from "@components/CustomMarker/CustomMarker";
+import { getDataIGS } from "@services/dataService";
 
 
 function Map() {
