@@ -74,17 +74,16 @@
 
 ### Скриншоты
 
-![Скриншот лендинга](./screenshot_1.png)  
+![Скриншот лендинга](./screenshots/screenshot_1.png)
 
-![Скриншот лендинга](./screenshot_2.png)  
+![Скриншот лендинга](./screenshots/screenshot_2.png)
 
-![Скриншот лендинга](./screenshot_3.png)  
+![Скриншот лендинга](./screenshots/screenshot_3.png)
 
-![Скриншот лендинга](./screenshot_4.png)  
+![Скриншот лендинга](./screenshots/screenshot_4.png)
 
-![Скриншот лендинга](./screenshot_5.png)  
+![Скриншот лендинга](./screenshots/screenshot_5.png)
 
-![Скриншот лендинга](./screenshot_6.png)  
-
+![Скриншот лендинга](./screenshots/screenshot_6.png)
 
 > Проект находится в стадии активной разработки
