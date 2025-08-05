@@ -13,7 +13,7 @@ export default defineConfig({
       '/igs-api': {
         target: 'https://files.igs.org',
         changeOrigin: true,
-        rewrite: path => path.replace(/^\/igs-api/, ''),
+        rewrite: (path: string) => path.replace(/^\/igs-api/, ''),
         secure: false,
       },
     },
