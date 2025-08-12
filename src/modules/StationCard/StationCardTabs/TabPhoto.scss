@@ -20,11 +20,15 @@
         text-align: center;
         margin-top: 5px;
         font-size: variables.$font-size-xs;
-        color: variables.$white-color;
+        color: variables.$black-color;
+    }
+
+    &__photo {
+        padding-top: 2vh;
     }
 
     &--warning {
         font-size: variables.$font-size-xs;
-        color: variables.$white-color;
+        color: variables.$second-color;
     }
 }
