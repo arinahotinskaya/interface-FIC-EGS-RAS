@@ -1,4 +1,5 @@
-import { Station } from '@constants/constants';
+import { Station } from '@constants/constants.ts';
+import TabPhoto from './TabPhoto.tsx';
 
 function TabOverview({ station }: {station: Station}) {
   if(station.Clock) {
@@ -12,6 +13,7 @@ function TabOverview({ station }: {station: Station}) {
         {station.Clock.Type && <p className='cards__station__description'><strong>Тип:</strong> {station.Clock.Type}</p>}
         {station.Clock.InputFrequency && <p className='cards__station__description'><strong>Входная частота:</strong> {station.Clock.InputFrequency}</p>}
         {station.Clock.EffectiveDates && <p className='cards__station__description'><strong>Дата эффективной работы (Effective dates):</strong> {station.Clock.EffectiveDates}</p>}
+        <TabPhoto station={station} />
       </>
     );
   } else {

@@ -10,7 +10,7 @@ function Login() {
           <input type='text' className='login__form-input' placeholder='Логин' required/>
           <input type='password' className='login__form-input' placeholder='Пароль' required/>
         </form> 
-        <Button form='login_form' type='submit' aim='login' content={'войти'}></Button>
+        <Button form='login_form' type='submit' aim='login' content={'Войти'}></Button>
       </div>
     </section>
   );

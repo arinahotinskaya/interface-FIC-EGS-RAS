@@ -13,7 +13,7 @@ function Registration() {
           <input type='password' className='reg__form-input' placeholder='Пароль' required/>
           <input type='password' className='reg__form-input' placeholder='Подтверждение пароля' required/>
         </form> 
-        <Button form='reg_form' type='submit' aim='reg' content={'зарегистрироваться'}></Button>
+        <Button form='reg_form' type='submit' aim='reg' content={'Зарегистрироваться'}></Button>
       </div>
     </section>
   );

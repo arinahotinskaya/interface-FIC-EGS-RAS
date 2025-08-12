@@ -12,7 +12,7 @@
         width: 100%;
         box-sizing: border-box;
         padding: 30px 50px;
-        background-color: variables.$main-color;
+        background-color: variables.$light-gray;
         border-radius: variables.$radius-s;
         overflow-y: auto;
         max-height: 60vh;
@@ -27,19 +27,38 @@
     &-link {
         margin-bottom: 3vh;
         background-color: variables.$white-color;
-        border: 1px solid variables.$white-color;
-        color: variables.$main-color;
+        border: 1px solid variables.$black-color;
+        color: variables.$black-color;
         font-size: variables.$font-size-xs;
     }
 
-    &__title {
+    &__titles {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 0.1vw;
+        border-top: 1px solid variables.$second-color;
         padding-top: 2vh;
         margin-bottom: 3vh;
+    }
+
+    &__title {
         text-align: center;
-        border-top: 2px solid variables.$white-color;
         font-weight: variables.$font-weight-bold;
         font-size: variables.$font-size-s;
-        color: variables.$white-color;
+        color: variables.$black-color;
+    }
+
+    &__link {
+        font-weight: variables.$font-weight-regular;
+        font-size: variables.$font-size-xs;
+        color: variables.$second-color;
+        text-decoration: transparent;
+        transition: variables.$transition-medium text-decoration;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 
     &__subtitle {
@@ -47,13 +66,13 @@
         padding-top: 2vh;
         font-weight: variables.$font-weight-bold;
         font-size: variables.$font-size-s;
-        color: variables.$white-color;
+        color: variables.$black-color;
     }
 
     &__description {
         font-weight: variables.$font-weight-regular;
         font-size: variables.$font-size-xs;
-        color: variables.$white-color;
+        color: variables.$black-color;
         
         &:not(:last-child) {
             margin-bottom: 2.5vh;
