@@ -85,7 +85,25 @@
         column-gap: 43px;
     }
 
+    &__download__button {
+        @include mixins.button(variables.$black-color, variables.$white-color, variables.$black-color);
+        background-color:variables.$marker-color;
+        color: variables.$white-color;
+    }
+
     &__button {
         @include mixins.button(variables.$black-color, variables.$white-color, variables.$black-color);
+    }
+
+    &__description {
+        font-weight: variables.$font-weight-regular;
+        font-size: variables.$font-size-s;
+
+        &__container {
+            padding: 39px 29px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 5vh;
+        }
     }
 }

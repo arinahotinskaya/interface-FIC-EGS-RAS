@@ -2,22 +2,24 @@ import './ArchiveAccess.scss'
 import { allStationNames } from '@constants/constants.ts'
 import { useState } from 'react'
 import Checkbox from '@components/CustomInput/Checkbox.tsx'
-// import RadioButton from '@components/CustomInput/Radiobutton'
 import Button from '@components/Button/Button.tsx'
+import axios from 'axios'
+import ArchiveError from './ArchiveError.tsx'
+import ArchiveDownloadInfo from './ArchiveDownloadInfo.tsx'
+import ArchiveResults from './ArchiveResults.tsx'
+import { ArchiveDownload, ArchiveFiles } from '@/types/types.ts'
 
-interface FormData {
-  stations: string[],
-  type: string[],
-  startDate: string,
-  endDate: string
-}
 
 function Stations() {
   const [selectedStations, setSelectedStations] = useState<string[]>([]);
   const allSelected: boolean = selectedStations.length === allStationNames.length;
-  const [selectedDataType, setSelectedDataType] = useState<string[]>([]);
   const [startDate, setStartDate] = useState<string>('');
   const [endDate, setEndDate] = useState<string>('');   
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isDownloading, setIsDownloading] = useState<boolean>(false);
+  const [results, setResults] = useState<ArchiveFiles[] | null>(null);
+  const [downloadInfo, setDownloadInfo] = useState<ArchiveDownload | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   function handleStationChange(station: string) {
     setSelectedStations(prev =>
@@ -26,40 +28,91 @@ function Stations() {
         : [...prev, station]
     );
   }
-
-  function handleTypeChange(type: string) {
-    setSelectedDataType(prev =>
-      prev.includes(type)
-        ? prev.filter(t => t !== type)
-        : [...prev, type]
-    );
+  function handleSelectAll() {
+    setSelectedStations(allSelected ? [] : allStationNames);
   }
 
-  function handleSelectAll() {
-    if (allSelected) {
-      setSelectedStations([]);
-    } else {
-      setSelectedStations(allStationNames);
+  async function sendRequest(url: string) {
+    return axios.post(url, { stations: selectedStations, startDate, endDate }, {
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
+
+  async function handleDownload() {
+    if (selectedStations.length === 0) {
+      setError('Выберите хотя бы одну станцию');
+      return;
+    }
+
+    setIsDownloading(true);
+    setError(null);
+
+    try {
+      const response = await sendRequest('http://localhost:8000/api/download/');
+      const data = response.data;
+
+      // Автоматическое скачивание
+      const link = document.createElement('a');
+      if (!data.download_url) {
+        setError('Нет данных за выбранный период');
+        return;
+      }
+      link.href = data.download_url;
+      link.download = data.archive_name;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      setDownloadInfo(data);
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        setError(error.response?.data?.message || error.message);
+      } else if (error instanceof Error) {
+        setError(error.message);
+      } else {
+        setError('Unknown error occurred');
+      }
+    } finally {
+      setIsDownloading(false);
     }
   }
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const formData: FormData = {
-      stations: selectedStations,
-      type: selectedDataType,
-      startDate,
-      endDate
-    };
-    const jsonData = JSON.stringify(formData, null, 2);
-    console.log(jsonData); // Дописать обращение к бекенду
+
+    if(selectedStations.length === 0) {
+      setError('Выберите хотя бы одну станцию');
+      return;
+    }
+
+    setIsLoading(true);
+    setError(null);
+    setResults(null);
+
+    try {
+      const response = await sendRequest('http://localhost:8000/api/stations/');
+      const data = response.data;
+      setResults(data);
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        setError(error.response?.data?.message || error.message);
+      } else if (error instanceof Error) {
+        setError(error.message);
+      } else {
+        setError('Unknown error occurred');
+      }
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   function handleReset() {
     setSelectedStations([]);
-    setSelectedDataType([]);
     setStartDate('');
     setEndDate('');
+    setResults(null);
+    setDownloadInfo(null);
+    setError(null);
   }
 
   return(
@@ -84,14 +137,6 @@ function Stations() {
                 <Checkbox checked={allSelected} onChange={handleSelectAll} content={'Выбрать все'}/>
               </div>
             </div>
-            <div className='stations__criteria-data'>
-              <h3 className='stations__criteria-title'>Тип данных</h3>
-              <Checkbox
-                checked={selectedDataType.includes('daily')}
-                onChange={() => handleTypeChange('daily')}
-                content='Суточные файлы'
-              />
-            </div>
             <div className='stations__criteria-time'>
               <h3 className='stations__criteria-title'>Временной запрос</h3>
               <div className='stations__criteria-inputs'>
@@ -101,6 +146,7 @@ function Stations() {
                     value={startDate}
                     onChange={e => setStartDate(e.target.value)}
                     className='stations__criteria-input'
+                    required
                   />
                 </label>
                 <label className='stations__criteria-label'>
@@ -110,19 +156,42 @@ function Stations() {
                     value={endDate}
                     onChange={e => setEndDate(e.target.value)}
                     className='stations__criteria-input'
+                    required
                   />
                 </label>
               </div>
             </div>
             <div className='stations__buttons'>
-              <Button type="submit" aim="stations" content={'посмотреть'}></Button>
-              <Button type="reset" aim="stations" content={'очистить'}></Button>
+              {/* <button
+                className='stations__button stations__button__download'
+                onClick={() => handleDownload()}
+                disabled={isDownloading}
+              >
+                {isDownloading ? 'Создание архива...' : 'Скачать данные'}
+              </button> */}
+              <Button 
+                onClick={() => handleDownload()}
+                aim='stations__download'
+                disabled={isDownloading}
+                content={isDownloading ? 'Создание архива...' : 'Скачать архив'}
+              />
+              <Button 
+                type="submit" 
+                aim="stations" 
+                disabled={isLoading}
+                content={isLoading ? 'Загрузка...' : 'Посмотреть данные'}
+              />
+              <Button type="reset" aim="stations" content={'Очистить'} />
             </div>
           </div>
         </form>
+
+        {error && ArchiveError({ error })}
+        {downloadInfo && ArchiveDownloadInfo(downloadInfo)}
+        {/* {results && <ArchiveResults results={results} />} */}
       </section>
     </>
   );
 }
 
-export default Stations
+export default Stations;
