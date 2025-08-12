@@ -36,3 +36,35 @@ export interface IGSStation {
   Antenna?: IGSAntenna;
   Clock?: IGSClock;
 }
+
+// Archive Access Types
+export interface ArchiveDownload {
+  success: boolean; 
+  download_url?: string;
+  file_count: number;
+  archive_name: string; 
+  stations: string[];
+  period: string;
+  structure: string;
+}
+
+export interface ArchiveFile {
+  id: string;
+  filename: string;
+  date: string;
+  path: string;
+  fullness: number; 
+  staid_info: {
+    staid: number;
+    staname: string;
+  };
+}
+
+export interface ArchiveError {
+  error: string;
+}
+
+// export type ArchiveFiles = Record<string, ArchiveFile | ArchiveError>;
+export interface ArchiveFiles {
+  [key: string]: ArchiveFile[] | ArchiveError;
+}

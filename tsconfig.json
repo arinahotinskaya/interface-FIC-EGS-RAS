@@ -31,6 +31,7 @@
       "@pages/*": ["src/pages/*"],
       "@services/*": ["src/services/*"],
       "@styles/*": ["src/styles/*"],
+      "@types/*": ["src/types/*"],
     },
 
     /* Node.js types */
