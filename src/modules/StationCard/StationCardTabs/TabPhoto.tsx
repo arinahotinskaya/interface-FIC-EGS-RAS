@@ -35,7 +35,7 @@ function TabPhoto({ station }: {station: Station}) {
     <>
       <div className='cards__station__slider cards__station__photo'>
         {photos.length !== 1 && <img src='src/assets/icon-slide-left.png' className='cards__station__button' onClick={prev} alt='' width='30' height='30' />}
-        <img className='cards__station__photo' src={photos[current]} alt={`Фото ${current + 1}`} style={{ maxWidth: '75%'}}/>
+        <img loading='lazy' className='cards__station__photo' src={photos[current]} alt={`Фото ${current + 1}`} style={{ maxWidth: '75%'}}/>
         {photos.length !== 1 && <img src='src/assets/icon-slide-right.png' className='cards__station__button' onClick={next} alt='' width='30' height='30'/>}
       </div>
       {photos.length !== 1 && <div className='cards__station__counter' >{current + 1} / {photos.length}</div>}
