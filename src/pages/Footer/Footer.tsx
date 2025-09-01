@@ -4,26 +4,23 @@ function Footer() {
   return(
     <footer className='footer'>
       <div className='footer__container'>
-        <div className='footer__address'>
-          <h3 className='footer__title'>Адрес</h3>
-          <p className='footer__description'>49035, обл. Калужская, г. Обнинск, пр. Ленина, 189</p>
+        <div className="footer__links">
+          <a className="footer__link" href="http://www.gsras.ru/new/news/">Новости</a>
+          <a className="footer__link" href="http://www.gsras.ru/cgi-bin/new/catalog.pl?l=0">Каталоги</a>
+          <a className="footer__link" href="http://www.gsras.ru/new/wf/">Сейсм.данные</a>
+          <a className="footer__link" href="http://www.gsras.ru/new/ssd.htm">ССД</a>
+          <a className="footer__link" href="http://www.gsras.ru/new/soft/">Продукты</a>
+          <a className="footer__link" href="http://www.gsras.ru/new/links.htm">Ссылки</a>
+          <a className="footer__link" href="http://www.gsras.ru/new/struct/">Структура</a>
+          <a className="footer__link" href="http://www.gsras.ru/new/public/">Публикации</a>
+          <a className="footer__link" href="http://www.gsras.ru/new/conf/">Конференции</a>
+          <a className="footer__link" href="http://www.gsras.ru/new/announ/">Объявления</a>
+          <a className="footer__link" href="http://www.gsras.ru/new/doc/corrup.htm">Противодействие коррупции</a>
+          <a className="footer__link" href="http://www.gsras.ru/new/about.htm">О нас</a>
         </div>
-        <div className='footer__contacts'>
-          <h3 className='footer__title'>Контакты</h3>
-          <p className='footer__description'>Электронная почта: 
-            <a className='footer__email' href="mailto:frc@gsras.ru">frc@gsras.ru</a>
-          </p>
-          <p className='footer__description'>Дирекция: 
-            <a href="tel:+74959126872" className='footer__tel'>+7(495)912-68-72</a>,
-            <a href="tel:+74843931405" className='footer__tel'>+7(484)393-14-05</a>
-          </p>
-          <p className='footer__description'>Факс: 
-            <a href="tel:+74843930234" className='footer__tel'>+7(484)393-02-34</a>
-          </p>
-          <p className='footer__description'>Служба срочных донесений (ССД):
-            <a href="tel:+74959126397" className='footer__tel'>+7(495)912-63-97</a>
-          </p>
-        </div>
+        <p className="footer__copyright">
+          © ФИЦ ЕГС РАН 1993-2025
+        </p>
       </div>
     </footer>
   );

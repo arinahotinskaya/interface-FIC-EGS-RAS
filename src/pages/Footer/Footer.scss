@@ -4,42 +4,38 @@
 
     &__container {
         display: flex;
-        justify-content: space-between;
-        padding: 25px 29px;
-        background-color: variables.$main-color;
-    }
-
-    &__address,
-    &__contacts {
-        display: flex;
         flex-direction: column;
-        row-gap: 8px;
+        align-items: center;
+        row-gap: 15px;
+        padding: 25px 29px;
+        background-color: variables.$light-gray;
     }
 
-    &__title {
-        margin-bottom: 10px;
-        font-size: variables.$font-size-s;
-        font-weight: variables.$font-weight-bold;
-        color: variables.$white-color;
+    &__links {
+        display: flex;
+        column-gap: 5px;
     }
 
-    &__description {
-        color: variables.$white-color;
+    &__link {
+        color: variables.$black-color;
+        font-size: variables.$font-size-xs;
+        text-decoration: transparent;
+        transition: variables.$transition-medium text-decoration;
+    }
+
+    &__link:hover {
+        text-decoration: underline;
+    }
+
+    &__link:not(:last-child) {
+        &::after {
+            content: '|';
+            margin-left: 5px;
+        }
+    }
+
+    &__copyright {
         font-size: variables.$font-size-xs;
         font-weight: variables.$font-weight-regular;
-    }
-
-    &__email,
-    &__tel {
-        margin-left: 10px;
-        text-decoration-color: variables.$link-inactive-white;
-        color: variables.$white-color;
-        font-weight: variables.$font-weight-medium;
-        transition: variables.$transition-medium text-decoration-color;
-    }
-
-    &__email:hover,
-    &__tel:hover {
-        text-decoration-color: variables.$link-active-white;
     }
 }
