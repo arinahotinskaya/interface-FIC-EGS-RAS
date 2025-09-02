@@ -4,6 +4,7 @@ function TabAntenna({ station }: { station: Station }) {
   if (station.Antenna) {
     return (
       <>
+        <h4 className='cards__station__subtitle'>Антенна</h4>
         {station.Antenna.Name && <p className='cards__station__description'><strong>Название:</strong> {station.Antenna.Name}</p>}
         {station.Antenna.Radome && <p className='cards__station__description'><strong>Обтекатель (Radome):</strong> {station.Antenna.Radome}</p>}
         {station.Antenna.SerialNumber && <p className='cards__station__description'><strong>Серийный номер:</strong> {station.Antenna.SerialNumber}</p>}
@@ -15,7 +16,7 @@ function TabAntenna({ station }: { station: Station }) {
       </>
     );
   } else {
-    return <div className='cards__station__description'>Информация об антенне отсутствует</div>;
+    return <div className='cards__station__description cards__station--warning'>Информация об антенне отсутствует</div>;
   }
 }
   

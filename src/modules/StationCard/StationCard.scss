@@ -20,8 +20,7 @@
 
     &-links {
         display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
+        flex-direction: column;
     }
 
     &-link {
@@ -37,7 +36,6 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        border-bottom: 1px solid variables.$second-color;
         padding-bottom: 2vh;
         margin-bottom: 3vh;
     }
@@ -47,6 +45,7 @@
         font-weight: variables.$font-weight-bold;
         font-size: variables.$font-size-s;
         color: variables.$black-color;
+        // border-bottom: 1px solid variables.$second-color;
     }
 
     &__link {

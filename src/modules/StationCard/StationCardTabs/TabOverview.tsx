@@ -1,18 +1,13 @@
 import { Station } from '@constants/constants.ts';
-import TabPhoto from './TabPhoto.tsx';
 
 function TabOverview({ station }: {station: Station}) {
   return (
     <>
       <p className='cards__station__description'><strong>Местоположение</strong>: {station.Region}</p>
-      {station.Latitude && <p className='cards__station__description'><strong>Широта:</strong> {station.Latitude}</p>}
-      {station.Longitude && <p className='cards__station__description'><strong>Долгота:</strong> {station.Longitude}</p>}
-      {station.Height && <p className='cards__station__description'><strong>Высота:</strong> {station.Height}</p>}
-      {/* {station.Clock && <h4 className='cards__station__subtitle'>Часы</h4>}
-      {station.Clock.Type && <p className='cards__station__description'><strong>Тип:</strong> {station.Clock.Type}</p>}
-      {station.Clock.InputFrequency && <p className='cards__station__description'><strong>Входная частота:</strong> {station.Clock.InputFrequency}</p>}
-      {station.Clock.EffectiveDates && <p className='cards__station__description'><strong>Дата эффективной работы (Effective dates):</strong> {station.Clock.EffectiveDates}</p>} */}
-      <TabPhoto station={station} />
+      {station.Latitude && station.Longitude && <p className='cards__station__description'><strong>Координаты (шир., дол.):</strong> {station.Latitude}, {station.Longitude}</p>}
+      {station.Antenna && station.Antenna.DateInstalled && <p className='cards__station__description'><strong>Дата установки:</strong> {station.Antenna.DateInstalled.split('T')[0]}</p>}
+      {station.Receiver && station.Receiver.Name && <p className='cards__station__description'><strong>Приемник:</strong> {station.Receiver.Name}</p>}
+      {station.Receiver && station.Receiver.SatelliteSystem && <p className='cards__station__description'><strong>Спутниковая система:</strong> {station.Receiver.SatelliteSystem}</p>}
     </>
   );
 }
