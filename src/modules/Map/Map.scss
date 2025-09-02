@@ -75,3 +75,21 @@
         }
     }
 }
+
+/* Plain text tooltip label near markers */
+.leaflet-tooltip.cards__map-label {
+    background: variables.$light-gray !important;
+    border: none !important;
+    color: variables.$black-color !important;
+    padding: 3px !important;
+    line-height: 1.2;
+}
+
+/* Hide tooltip arrow for all placement variants */
+.leaflet-tooltip.cards__map-label:before,
+.leaflet-tooltip-top.cards__map-label:before,
+.leaflet-tooltip-right.cards__map-label:before,
+.leaflet-tooltip-left.cards__map-label:before,
+.leaflet-tooltip-bottom.cards__map-label:before {
+    display: none !important;
+}

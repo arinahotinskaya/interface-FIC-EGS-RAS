@@ -1,9 +1,8 @@
-import { useState } from 'react';
 import './StationCard.scss'
-import TabAntenna from './StationCardTabs/TabAntenna.tsx'
+// import TabAntenna from './StationCardTabs/TabAntenna.tsx'
 import TabOverview from'./StationCardTabs/TabOverview.tsx'
 import TabPhoto from'./StationCardTabs/TabPhoto.tsx'
-import TabReceiver from './StationCardTabs/TabReceiver.tsx'
+// import TabReceiver from './StationCardTabs/TabReceiver.tsx'
 import { Station } from '@constants/constants.ts'
 
 
