@@ -10,3 +10,7 @@
     background-color: $background-color;
     color: $color;
 }
+
+@mixin header-text($font-size) {
+    font-size: $font-size;
+}

@@ -1,4 +1,5 @@
 @use '@styles/variables.scss';
+@use '@styles/mixins.scss';
 
 .cards {
     margin-bottom: 5vh;
@@ -92,4 +93,27 @@
 .leaflet-tooltip-left.cards__map-label:before,
 .leaflet-tooltip-bottom.cards__map-label:before {
     display: none !important;
+}
+
+@media screen and (max-width: 767px) {
+    .cards {
+        &__title {
+            @include mixins.header-text(variables.$font-size-s);
+        }
+
+        &__map {
+            &-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+
+            &-info {
+                grid-row-start: auto;
+
+                &-item-title {
+                    @include mixins.header-text(variables.$font-size-xs);
+                }
+            }
+        }
+    }
 }

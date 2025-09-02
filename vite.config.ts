@@ -8,16 +8,6 @@ const __dirname = path.dirname(__filename);
 
 export default defineConfig({
   plugins: [react()],
-  server: {
-    proxy: {
-      '/igs-api': {
-        target: 'https://files.igs.org',
-        changeOrigin: true,
-        rewrite: (path: string) => path.replace(/^\/igs-api/, ''),
-        secure: false,
-      },
-    },
-  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
