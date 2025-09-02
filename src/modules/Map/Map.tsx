@@ -1,7 +1,8 @@
 import './Map.scss'
-import { useEffect, useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from 'react-leaflet'
+import { useEffect, useRef, useState } from 'react';
+import { MapContainer, TileLayer, Marker, Popup, GeoJSON, Tooltip, useMap } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
+import type L from 'leaflet';
 import russianBorder from '@constants/russian.json';
 import { position, activeStations, Station } from '@constants/constants.ts';
 import StationCard from '@modules/StationCard/StationCard';
@@ -16,10 +17,20 @@ type StationsByCoords = Record<string, Station[]>;
 function Map() {
   const [stations, setStations] = useState<Station[]>([]);
   const [selectedStation, setSelectedStation] = useState<Station | null>(null);
+  const mapRef = useRef<L.Map | null>(null);
+  const markersRef = useRef<Record<string, L.Marker | null>>({});
+
+  function MapRefSetter({ onMap }: { onMap: (map: L.Map) => void }) {
+    const map = useMap();
+    useEffect(() => {
+      onMap(map as unknown as L.Map);
+    }, [map, onMap]);
+    return null;
+  }
 
   useEffect(() => {
-    const dataIGS = async() => {
-      const jsonIGS: IGSData = await(getDataIGS()) as unknown as IGSData;
+    const dataIGS = () => {
+      const jsonIGS: IGSData = getDataIGS() as unknown as IGSData;
 
       const filteredStations = activeStations.map(station => {
         if(station.Name) {
@@ -65,6 +76,7 @@ function Map() {
               <div className='cards__map-container'>
                 <div className='cards__map'>
                   <MapContainer center={position} zoom={2} style={{height: '100%', width: '100%'}} attributionControl={false}>
+                    <MapRefSetter onMap={(map) => { mapRef.current = map; }} />
                     <TileLayer
                       attribution='&copy; <a href="https://carto.com/">CARTO</a>'
                       url='https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
@@ -80,11 +92,20 @@ function Map() {
                           key={coordsStr} 
                           position={[coords[0], coords[1]] as [number, number]} 
                           icon={customGreenMarkerIcon}
+                          ref={(marker) => { markersRef.current[coordsStr] = marker as unknown as L.Marker | null; }}
+                          eventHandlers={{
+                            click: () => {
+                              setSelectedStation(stationsGroup[0]);
+                            }
+                          }}
                         >
+                          <Tooltip permanent direction='top' offset={[-2, -7]} className='cards__map-label'>
+                            {stationsGroup[0]?.Name?.toUpperCase()}
+                          </Tooltip>
                           <Popup className='cards__map-popup'>
                             {stationsGroup.map((station: Station) => (
                               <div key={station.Name}>
-                                <h3 className='cards__map-popup__title'><strong>{station.Name.toUpperCase()}</strong></h3>
+                                <h3 className='cards__map-popup__title' onClick={() => setSelectedStation(station)}><strong>{station.Name.toUpperCase()}</strong></h3>
                                 <p className='cards__map-popup__description'><strong>Местоположение</strong>: {station.Region}</p>
                                 <p className='cards__map-popup__description'><strong>Координаты:</strong> {station.Latitude + ', ' + station.Longitude}</p>
                                 {station.Receiver && <p className='cards__map-popup__description'><strong>Приемник:</strong> {station.Receiver.Name}</p>}
@@ -105,7 +126,17 @@ function Map() {
                         <li 
                           className='cards__map-info-item' 
                           key={station.Name} 
-                          onClick={() => handleClick(station)}
+                          onClick={() => {
+                            handleClick(station);
+                            const key = station.Latitude + ',' + station.Longitude;
+                            const marker = markersRef.current[key];
+                            if (marker) {
+                              marker.openPopup();
+                            }
+                            if (mapRef.current) {
+                              mapRef.current.setView([Number(station.Latitude), Number(station.Longitude)] as L.LatLngExpression, Math.max(mapRef.current.getZoom(), 5));
+                            }
+                          }}
                         >
                           <span className='cards__map-info-item-title'>{station.Name.toUpperCase()}</span>
                         </li>
