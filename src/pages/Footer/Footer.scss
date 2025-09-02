@@ -13,6 +13,9 @@
 
     &__links {
         display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
         column-gap: 5px;
     }
 
@@ -21,16 +24,16 @@
         font-size: variables.$font-size-xs;
         text-decoration: transparent;
         transition: variables.$transition-medium text-decoration;
-    }
 
-    &__link:hover {
-        text-decoration: underline;
-    }
+        &:hover {
+            text-decoration: underline;
+        }
 
-    &__link:not(:last-child) {
-        &::after {
-            content: '|';
-            margin-left: 5px;
+        &:not(:last-child) {
+            &::after {
+                content: '|';
+                margin-left: 5px;
+            }
         }
     }
 

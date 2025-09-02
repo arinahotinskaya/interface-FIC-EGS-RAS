@@ -11,7 +11,7 @@ function TabAntenna({ station }: { station: Station }) {
         {station.Antenna.MarkerUp && <p className='cards__station__description'><strong>Marker up:</strong> {station.Antenna.MarkerUp}</p>}
         {station.Antenna.MarkerNorth && <p className='cards__station__description'><strong>Marker north:</strong> {station.Antenna.MarkerNorth}</p>}
         {station.Antenna.MarkerEast && <p className='cards__station__description'><strong>Marker east:</strong> {station.Antenna.MarkerEast}</p>}
-        {station.Antenna.DateInstalled && <p className='cards__station__description'><strong>Дата установки:</strong> {station.Antenna.DateInstalled}</p>}
+        {station.Antenna.DateInstalled && <p className='cards__station__description'><strong>Дата установки:</strong> {station.Antenna.DateInstalled.split('T')[0]}</p>}
       </>
     );
   } else {

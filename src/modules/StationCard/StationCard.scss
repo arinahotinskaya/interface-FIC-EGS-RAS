@@ -34,11 +34,11 @@
 
     &__titles {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        column-gap: 0.1vw;
-        border-top: 1px solid variables.$second-color;
-        padding-top: 2vh;
+        border-bottom: 1px solid variables.$second-color;
+        padding-bottom: 2vh;
         margin-bottom: 3vh;
     }
 

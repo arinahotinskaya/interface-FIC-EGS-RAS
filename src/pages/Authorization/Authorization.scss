@@ -12,16 +12,16 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: variables.$main-color;
+        background-color: variables.$light-gray;
         border-radius: variables.$radius-m;
         box-shadow: 8px 8px 6px variables.$shadow-black;
     }
 
     &__title {
-        color: variables.$white-color;
+        color: variables.$black-color;
         font-size: variables.$font-size-l;
         font-weight: variables.$font-weight-bold;
-        text-shadow: 4px 4px 6px variables.$shadow-white;
+        text-shadow: 1px 1px 3px variables.$shadow-white;
     }
 
     &__form {
@@ -37,13 +37,13 @@
             width: 70%;
             padding: 4px 0 4px 16px;
             height: 36px;
-            border: none;
+            border: 1px solid variables.$second-color;
             border-radius: variables.$radius-s;
             color: variables.$black-color;
             font-size: variables.$font-size-s;
 
             &::placeholder {
-                color: variables.$placeholder-main;
+                color: variables.$second-color;
                 font-size: variables.$font-size-s;
             }
         }

@@ -23,14 +23,14 @@ function StationCard({ station }: { station: Station }) {
   return (
     <div className='cards__station'>
       <div className='cards__station-container'>
+        <div className='cards__station__titles'>
+          <h3 className='cards__station__title'><strong>{station.Name.toUpperCase()}</strong></h3>
+          <a href={jsonUrl} className='cards__station__link' download={`${station.Name.toLowerCase()}Passport.json`}>(Скачать паспорт)</a>
+        </div>
         <div className='cards__station-links'>
           <button onClick={() => setTab('overview')} className='button cards__station-link'>Информация</button>
           <button onClick={() => setTab('antenna')} className='button cards__station-link'>Антенна</button>
           <button onClick={() => setTab('receiver')} className='button cards__station-link'>Приемник</button>
-        </div>
-        <div className='cards__station__titles'>
-          <h3 className='cards__station__title'><strong>{station.Name.toUpperCase()}</strong></h3>
-          <a href={jsonUrl} className='cards__station__link' download={`${station.Name.toLowerCase()}Passport.json`}>(Скачать паспорт)</a>
         </div>
         {content}
       </div>

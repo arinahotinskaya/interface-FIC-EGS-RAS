@@ -33,18 +33,18 @@ export const allStationNames: string[] = [
 ];
 
 export const activeStations: Array<Station> = [
-  // { Name: 'arti', Latitude: '56.430', Longitude: '58.560' },
   { Name: 'artu', Region: 'Арти, Россия' },
+  { Name: 'arti', Region: 'Арти, Россия', Latitude: '56.430', Longitude: '58.560' },
   { Name: 'irkm', Region: 'Иркутск, Россия' },
-  // { Name: 'irkt', Region: 'Иркутск, Россия', Latitude: '52.219', Longitude: '104.316' },
+  { Name: 'irkt', Region: 'Иркутск, Россия', Latitude: '52.219', Longitude: '104.316' },
   { Name: 'mag0', Region: 'Магадан, Россия' },
-  { Name: 'mobj', Region: 'Обнинск, Россия' },
-  { Name: 'mobk', Region: 'Обнинск, Россия' },
   { Name: 'mobn', Region: 'Обнинск, Россия' },
+  { Name: 'mobk', Region: 'Обнинск, Россия' },
+  { Name: 'mobj', Region: 'Обнинск, Россия' },
   { Name: 'nril', Region: 'Норильск, Россия' },
   { Name: 'pets', Region: 'Петропавловск-Камчатский, Россия' },
   { Name: 'tixi', Region: 'Тикси, Россия' },
-  // { Name: 'tixj', Region: 'Тикси, Россия', Latitude: '71.634', Longitude: '128.866' },
+  { Name: 'tixj', Region: 'Тикси, Россия', Latitude: '71.634', Longitude: '128.866' },
   { Name: 'yakt', Region: 'Якутск, Россия' },
   { Name: 'yssk', Region: 'Южно-Сахалинск, Россия' },
 ];
