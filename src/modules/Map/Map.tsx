@@ -61,7 +61,7 @@ function Map() {
     <>
       <section className='cards'>
           <div className='cards__container'>
-              <h2 className='cards__title'>Карта сети актуальных станций ФИЦ ЕГС РАН</h2>
+              <h2 className='cards__title'>Сеть станций ФИЦ ЕГС РАН</h2>
               <div className='cards__map-container'>
                 <div className='cards__map'>
                   <MapContainer center={position} zoom={2} style={{height: '100%', width: '100%'}} attributionControl={false}>
@@ -86,10 +86,10 @@ function Map() {
                               <div key={station.Name}>
                                 <h3 className='cards__map-popup__title'><strong>{station.Name.toUpperCase()}</strong></h3>
                                 <p className='cards__map-popup__description'><strong>Местоположение</strong>: {station.Region}</p>
-                                <p className='cards__map-popup__description'><strong>Координаты (Latitude, Longitude):</strong> {station.Latitude + ', ' + station.Longitude}</p>
-                                {station.Receiver && <p className='cards__map-popup__description'><strong>Приемник (Receiver):</strong> {station.Receiver.Name}</p>}
-                                {station.Antenna && <p className='cards__map-popup__description'><strong>Антенна (Antenna):</strong> {station.Antenna.Name}</p>}
-                                {station.Receiver && <p className='cards__map-popup__description'><strong>Спутниковая система (Satellite system):</strong> {station.Receiver.SatelliteSystem}</p>}
+                                <p className='cards__map-popup__description'><strong>Координаты:</strong> {station.Latitude + ', ' + station.Longitude}</p>
+                                {station.Receiver && <p className='cards__map-popup__description'><strong>Приемник:</strong> {station.Receiver.Name}</p>}
+                                {station.Antenna && <p className='cards__map-popup__description'><strong>Антенна:</strong> {station.Antenna.Name}</p>}
+                                {station.Receiver && <p className='cards__map-popup__description'><strong>Спутниковая система:</strong> {station.Receiver.SatelliteSystem}</p>}
                               </div>
                             ))}
                           </Popup>
