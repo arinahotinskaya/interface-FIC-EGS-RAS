@@ -6,7 +6,29 @@ function Header() {
     <header className='header'>
       <div className='header__container'>
         <div className='header__logo-container'>
-          <img src='src/assets/header-logo.svg' alt='Федеральный исследовательский центр - Единая геофизическая служба РАН' className='header__logo' />
+          <picture>
+            <source 
+              srcSet='src/assets/logo/header-logo-320.svg' 
+              media='(max-width: 320px)' 
+            />
+            <source 
+              srcSet='src/assets/logo/header-logo-575.svg' 
+              media='(max-width: 575px)' 
+            />
+            <source 
+              srcSet='src/assets/logo/header-logo-767.svg' 
+              media='(max-width: 767px)' 
+            />
+            <source 
+              srcSet='src/assets/logo/header-logo-992.svg' 
+              media='(max-width: 992px)' 
+            />
+            <img 
+              src='src/assets/logo/header-logo-1600.svg' 
+              alt='Федеральный исследовательский центр – Единая геофизическая служба РАН' 
+              className='header__logo' 
+            />
+          </picture>
         </div>
         <div className='header__nav-container'>
           <nav className='header__nav'>

@@ -109,7 +109,7 @@ function Map() {
                                 <p className='cards__map-popup__description'><strong>Местоположение</strong>: {station.Region}</p>
                                 <p className='cards__map-popup__description'><strong>Координаты:</strong> {station.Latitude + ', ' + station.Longitude}</p>
                                 {station.Receiver && <p className='cards__map-popup__description'><strong>Приемник:</strong> {station.Receiver.Name}</p>}
-                                {station.Antenna && <p className='cards__map-popup__description'><strong>Антенна:</strong> {station.Antenna.Name}</p>}
+                                {/* {station.Antenna && <p className='cards__map-popup__description'><strong>Антенна:</strong> {station.Antenna.Name}</p>} */}
                                 {station.Receiver && <p className='cards__map-popup__description'><strong>Спутниковая система:</strong> {station.Receiver.SatelliteSystem}</p>}
                               </div>
                             ))}

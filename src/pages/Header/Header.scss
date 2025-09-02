@@ -1,4 +1,5 @@
 @use '@styles/variables.scss';
+@use '@styles/mixins.scss';
 
 .header {
     &__container {
@@ -12,18 +13,24 @@
     &__nav-container {
         margin: 25px 29px;
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
+        row-gap: 20px;
     }
 
     &__nav {
-        gap: 70px;
+        display: flex;
+        flex-wrap: wrap;
+
     }
 
     &__link {
         color: variables.$black-color;
         text-decoration-color: variables.$link-inactive;
-        font-size: variables.$font-size-s;
+        // font-size: variables.$font-size-s;
         transition: variables.$transition-slow text-decoration-color;
+
+        
 
         &:not(:last-child) {
             margin-right: 70px;
@@ -34,19 +41,63 @@
         }
     }
 
-    &__auth-slash {
-        color: variables.$black-color;
-        font-size: variables.$font-size-s;
-    }
-
-    &__auth-link {
-        color: variables.$black-color;
-        text-decoration-color: variables.$link-inactive;
-        font-size: variables.$font-size-s;
-        transition: variables.$transition-slow text-decoration-color;
-
-        &:hover {
-            text-decoration-color: variables.$link-active;
+    &__auth {
+        &-slash {
+            color: variables.$black-color;
+            font-size: variables.$font-size-s;
         }
+
+        &-link {
+            color: variables.$black-color;
+            text-decoration-color: variables.$link-inactive;
+            transition: variables.$transition-slow text-decoration-color;
+
+            &:hover {
+                text-decoration-color: variables.$link-active;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .header__nav {
+        flex-direction: column;
+        row-gap: 20px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .header__link {
+        @include mixins.header-text(variables.$font-size-xxs);
+    }
+    .header__auth-slash {
+        @include mixins.header-text(variables.$font-size-xxs);
+    }
+    .header__auth-link {
+        @include mixins.header-text(variables.$font-size-xxs);
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 767px) {
+    .header__link {
+        @include mixins.header-text(variables.$font-size-xs);
+    }
+    .header__auth-slash {
+        @include mixins.header-text(variables.$font-size-xs);
+    }
+    .header__auth-link {
+        @include mixins.header-text(variables.$font-size-xs);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .header__link {
+        @include mixins.header-text(variables.$font-size-s);
+    }
+    .header__auth-slash {
+        @include mixins.header-text(variables.$font-size-s);
+    }
+    .header__auth-link {
+        @include mixins.header-text(variables.$font-size-s);
     }
 }

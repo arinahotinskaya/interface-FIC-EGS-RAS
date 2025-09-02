@@ -78,3 +78,16 @@
         }
     }
 }
+
+@media screen and (max-width: 767px) {
+    .cards__station {
+        grid-row: auto;
+        grid-column-start: auto;
+    }
+
+    .cards__station-container {
+        overflow-y: visible;
+        max-height: none;
+        height: auto;
+    }
+}
