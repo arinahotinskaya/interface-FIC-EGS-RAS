@@ -4,6 +4,7 @@ function TabReceiver({ station }: { station: Station }) {
   if(station.Receiver) {
     return (
       <>
+        <h4 className='cards__station__subtitle'>Приемник</h4>
         {station.Receiver.Name && <p className='cards__station__description'><strong>Название:</strong> {station.Receiver.Name}</p>}
         {station.Receiver.SatelliteSystem && <p className='cards__station__description'><strong>Спутниковая система:</strong> {station.Receiver.SatelliteSystem}</p>}
         {station.Receiver.SerialNumber && <p className='cards__station__description'><strong>Серийный номер:</strong> {station.Receiver.SerialNumber}</p>}
@@ -13,7 +14,7 @@ function TabReceiver({ station }: { station: Station }) {
       </>
     );
   } else {
-    return <div className='cards__station__description'>Информация о приемнике отсутствует</div>;
+    return <div className='cards__station__description cards__station--warning'>Информация о приемнике отсутствует</div>;
   }
 }
   
