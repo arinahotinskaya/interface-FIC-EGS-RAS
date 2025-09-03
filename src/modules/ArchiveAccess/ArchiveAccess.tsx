@@ -186,8 +186,8 @@ function Stations() {
           </div>
         </form>
 
-        {error && ArchiveError({ error })}
-        {downloadInfo && ArchiveDownloadInfo(downloadInfo)}
+        {error && <ArchiveError error={error} />}
+        {downloadInfo && <ArchiveDownloadInfo {...downloadInfo} />}
         {/* {results && <ArchiveResults results={results} />} */}
       </section>
     </>
