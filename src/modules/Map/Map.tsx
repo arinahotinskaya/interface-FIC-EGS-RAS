@@ -9,6 +9,7 @@ import StationCard from '@modules/StationCard/StationCard';
 import { customGreenMarkerIcon } from '@components/CustomMarker/CustomMarker.tsx';
 import { getDataIGS } from '@services/dataService.ts';
 import { IGSStation } from '../../types/types.ts';
+import MapInfo from './MapInfo.tsx';
 
 type IGSData = Record<string, IGSStation>;
 
@@ -144,7 +145,13 @@ function Map() {
                     })}
                   </ul>
                 </div>
-                {selectedStation && <StationCard station={selectedStation} />}
+                {!selectedStation && <MapInfo />}
+                {selectedStation && (
+                  <StationCard 
+                    station={selectedStation} 
+                    onClose={() => setSelectedStation(null)}
+                  />
+                )}
               </div>
           </div>
       </section>
@@ -152,4 +159,4 @@ function Map() {
   )
 }
 
-export default Map
+export default Map;

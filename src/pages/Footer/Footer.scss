@@ -22,11 +22,11 @@
     &__link {
         color: variables.$black-color;
         font-size: variables.$font-size-xs;
-        text-decoration: transparent;
-        transition: variables.$transition-medium text-decoration;
+        text-decoration-color: variables.$link-inactive;
+        transition: variables.$transition-slow text-decoration-color;
 
         &:hover {
-            text-decoration: underline;
+            text-decoration-color: variables.$link-active;
         }
 
         &:not(:last-child) {
