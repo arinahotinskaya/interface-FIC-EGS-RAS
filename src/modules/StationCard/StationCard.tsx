@@ -6,7 +6,12 @@ import TabPhoto from'./StationCardTabs/TabPhoto.tsx'
 import { Station } from '@constants/constants.ts'
 
 
-function StationCard({ station }: { station: Station }) {  
+type StationCardProps = {
+  station: Station;
+  onClose?: () => void;
+}
+
+function StationCard({ station, onClose }: StationCardProps) {  
   const content_overview = <TabOverview station={station} />;
   // const content_antenna = <TabAntenna station={station} />;
   // const content_receiver = <TabReceiver station={station} />;
@@ -17,6 +22,14 @@ function StationCard({ station }: { station: Station }) {
   return (
     <div className='cards__station'>
       <div className='cards__station-container'>
+        <button
+          type='button'
+          aria-label='Закрыть паспорт'
+          className='cards__station__close'
+          onClick={() => onClose && onClose()}
+        >
+          ×
+        </button>
         <div className='cards__station__titles'>
           <h3 className='cards__station__title'><strong>{station.Name.toUpperCase()}</strong></h3>
           <a href={passportHref} className='cards__station__link' download={`${station.Name.toLowerCase()}Passport.txt`}>

@@ -16,6 +16,7 @@
         border-radius: variables.$radius-s;
         overflow-y: auto;
         max-height: 60vh;
+        position: relative;
     }
 
     &-links {
@@ -52,11 +53,36 @@
         font-weight: variables.$font-weight-regular;
         font-size: variables.$font-size-xs;
         color: variables.$second-color;
-        text-decoration: transparent;
-        transition: variables.$transition-medium text-decoration;
+        text-decoration-color: variables.$link-inactive;
+        transition: variables.$transition-slow text-decoration-color;
 
         &:hover {
-            text-decoration: underline;
+            text-decoration-color: variables.$second-color;
+        }
+    }
+
+    &__close {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        width: 32px;
+        height: 32px;
+        border: none;
+        background: none;
+        color: variables.$second-color;
+        font-size: variables.$font-size-m;
+        line-height: 28px;
+        cursor: pointer;
+        padding: 0;
+        transition: color variables.$transition-medium, transform variables.$transition-fast;
+
+        &:hover {
+            color: variables.$black-color;
+            transform: scale(1.05);
+        }
+
+        &:active {
+            transform: scale(0.98);
         }
     }
 
