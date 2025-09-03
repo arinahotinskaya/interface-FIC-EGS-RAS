@@ -8,6 +8,11 @@
 
     &__logo {
         width: 100%;
+        background-color: variables.$main-color;
+
+        &__link {
+            cursor: pointer;
+        }
     }
 
     &__nav-container {
@@ -54,6 +59,38 @@
 
             &:hover {
                 text-decoration-color: variables.$link-active;
+            }
+        }
+    }
+
+    &-organization {
+        &__links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            background-color: variables.$main-color;
+        }
+
+        &__link {
+            color: variables.$white-color;
+            text-decoration-color: variables.$link-inactive;
+            transition: variables.$transition-slow text-decoration-color;
+            padding: 10px;
+
+            &:hover {
+                text-decoration-color: variables.$white-color;
+            }
+
+            &--active {
+                background-color: variables.$white-color;
+                color: variables.$main-color;
+                border: 2px solid variables.$main-color;
+
+                &:hover {
+                    text-decoration-color: variables.$main-color;
+                }
+                
             }
         }
     }
