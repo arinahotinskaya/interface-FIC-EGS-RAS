@@ -22,7 +22,7 @@
 
     &__description {
         font-weight: variables.$font-weight-regular;
-        font-size: variables.$font-size-xs;
+        font-size: variables.$font-size-s;
 
         &--mgb {
             margin-bottom: 1vh;
@@ -33,9 +33,9 @@
         list-style: none;
     }
 
-     &__item {
+    &__item {
         font-weight: variables.$font-weight-regular;
-        font-size: variables.$font-size-xs;
+        font-size: variables.$font-size-s;
 
         &:not(:last-child) {
             margin-bottom: 1vh;
@@ -47,6 +47,11 @@
     .map-info {
         grid-row: auto;
         grid-column-start: auto;
+
+        &__description,
+        &__item {
+            font-size: variables.$font-size-xs;
+        }
     }
 
     .map-info__container {

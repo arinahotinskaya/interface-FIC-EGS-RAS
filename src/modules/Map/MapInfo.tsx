@@ -14,7 +14,7 @@ function MapInfo() {
           пространства (NASA) и Массачусетского технологического института (MIT).
         </p>
         <ul className="map-info__list">
-          <p className="map-info__description--mgb">
+          <p className="map-info__description map-info__description--mgb">
             Проект установки станций сети NEDA разрабатывался с учётом нескольких основных требований: 
           </p>
           <li className="map-info__item">
