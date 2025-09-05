@@ -27,7 +27,7 @@ function InfoPage() {
           кинематические модели их движения, результаты моделирования геодинамических процессов).
         </p>
         <p className="info__description">
-          Для получения дополнительной информации можно обращаться по адресу: <a href="mailto:" className='info__link'>почта для связи</a>
+          Для получения дополнительной информации можно обращаться по адресу: <a href="mailto:gnss@gsras.ru" className='info__link'>gnss@gsras.ru</a>
         </p>
       </div>
     </section>
