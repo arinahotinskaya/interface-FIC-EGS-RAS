@@ -8,7 +8,15 @@
 
     &__logo {
         width: 100%;
+        max-width: 1600px;
         background-color: variables.$main-color;
+
+        &-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: variables.$main-color;
+        }
 
         &__link {
             cursor: pointer;
@@ -67,9 +75,11 @@
         &__links {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-around;
+            padding: 0 19px;
+            justify-content: space-between;
             align-items: center;
             background-color: variables.$main-color;
+            border-top: 4px solid variables.$white-color;
         }
 
         &__link {
