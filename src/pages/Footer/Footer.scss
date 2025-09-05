@@ -1,6 +1,7 @@
 @use '@styles/variables.scss';
 
 .footer {
+    margin-top: auto;
 
     &__container {
         display: flex;
@@ -40,5 +41,16 @@
     &__copyright {
         font-size: variables.$font-size-xs;
         font-weight: variables.$font-weight-regular;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .footer {
+        &__link {
+            font-size: variables.$font-size-xxs;
+        }
+        &__copyright {
+            font-size: variables.$font-size-xxs;
+        }
     }
 }

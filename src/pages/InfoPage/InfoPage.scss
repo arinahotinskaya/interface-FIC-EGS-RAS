@@ -12,12 +12,12 @@
 
     &__description {
         font-weight: variables.$font-weight-regular;
-        font-size: variables.$font-size-s;
+        font-size: variables.$font-size-xs;
     }
 
     &__link {
         font-weight: variables.$font-weight-regular;
-        font-size: variables.$font-size-s;
+        font-size: variables.$font-size-xs;
         color: variables.$main-color;
         text-decoration-color: variables.$link-inactive;
         transition: variables.$transition-slow text-decoration-color;
@@ -32,7 +32,11 @@
     .info {
         &__description,
         &__link {
-            @include mixins.header-text(variables.$font-size-xs);
+            font-size: variables.$font-size-xxs;
+        }
+
+        &__container {
+            row-gap: 2vh;
         }
     }
 }

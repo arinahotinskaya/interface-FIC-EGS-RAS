@@ -22,7 +22,7 @@
 
     &__description {
         font-weight: variables.$font-weight-regular;
-        font-size: variables.$font-size-s;
+        font-size: variables.$font-size-xs;
 
         &--mgb {
             margin-bottom: 1vh;
@@ -35,7 +35,7 @@
 
     &__item {
         font-weight: variables.$font-weight-regular;
-        font-size: variables.$font-size-s;
+        font-size: variables.$font-size-xs;
 
         &:not(:last-child) {
             margin-bottom: 1vh;
@@ -50,7 +50,7 @@
 
         &__description,
         &__item {
-            font-size: variables.$font-size-xs;
+            font-size: variables.$font-size-xxs;
         }
     }
 

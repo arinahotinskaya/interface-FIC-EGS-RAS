@@ -5,10 +5,10 @@
     margin-bottom: 5vh;
 
     &__title {
-        margin-top: 39px;
+        margin-top: 29px;
         margin-left: 29px;
         font-weight: variables.$font-weight-bold;
-        font-size: variables.$font-size-m;
+        font-size: variables.$font-size-ml;
     }
 
     &__map {
@@ -20,7 +20,7 @@
             display: grid;
             grid-template: auto auto / 50vw auto;
             gap: 2em;
-            margin: 39px 29px 0;
+            margin: 29px 29px 0;
         }
 
         &-popup {
@@ -46,7 +46,7 @@
             cursor: pointer;
 
             &-title {
-                font-size: variables.$font-size-s;
+                font-size: variables.$font-size-xs;
                 -webkit-user-select: none; /* Safari */
                 -moz-user-select: none; /* Firefox */
                 -ms-user-select: none; /* IE 10+ */
@@ -99,7 +99,7 @@
 @media screen and (max-width: 767px) {
     .cards {
         &__title {
-            @include mixins.header-text(variables.$font-size-s);
+            font-size: variables.$font-size-s;
         }
 
         &__map {
@@ -112,7 +112,7 @@
                 grid-row-start: auto;
 
                 &-item-title {
-                    @include mixins.header-text(variables.$font-size-xs);
+                    font-size: variables.$font-size-xxs;
                 }
             }
         }

@@ -12,16 +12,18 @@ import '@pages/Authorization/Authorization.scss'
 function App() {
   return (
     <>
-      <Header />
-      <Routes>
-        <Route path='/' element={<Navigate to='/Information' replace />} />
-        <Route path='/Information' element={<InfoPage />} />
-        <Route path='/Stations' element={<StationsPage />} />
-        <Route path='/Access' element={<AccessPage />} />
-        <Route path='/Login' element={<Login />} />
-        <Route path='/Registration' element={<Registration />} />
-      </Routes>
-      <Footer />
+      <div className="page__container">
+        <Header />
+        <Routes>
+          <Route path='/' element={<Navigate to='/Information' replace />} />
+          <Route path='/Information' element={<InfoPage />} />
+          <Route path='/Stations' element={<StationsPage />} />
+          <Route path='/Access' element={<AccessPage />} />
+          <Route path='/Login' element={<Login />} />
+          <Route path='/Registration' element={<Registration />} />
+        </Routes>
+        <Footer />
+      </div>
     </>
   );
 }
