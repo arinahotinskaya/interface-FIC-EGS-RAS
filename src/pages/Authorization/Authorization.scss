@@ -19,7 +19,7 @@
 
     &__title {
         color: variables.$black-color;
-        font-size: variables.$font-size-l;
+        font-size: variables.$font-size-ml;
         font-weight: variables.$font-weight-bold;
         text-shadow: 1px 1px 3px variables.$shadow-white;
     }
@@ -28,10 +28,10 @@
         width: 100%;
         height: 100%;
         display: flex;
-        justify-content: center;
         align-items: center;
         flex-direction: column;
         row-gap: 28px;
+        margin-top: 20px;
 
         &-input {
             width: 70%;
@@ -40,12 +40,18 @@
             border: 1px solid variables.$second-color;
             border-radius: variables.$radius-s;
             color: variables.$black-color;
-            font-size: variables.$font-size-s;
+            font-size: variables.$font-size-xs;
 
             &::placeholder {
                 color: variables.$second-color;
-                font-size: variables.$font-size-s;
+                font-size: variables.$font-size-xs;
             }
+        }
+
+        &-error {
+            color: variables.$error-color;
+            font-size: variables.$font-size-xxs;
+            margin-top: -20px;
         }
     }
 
