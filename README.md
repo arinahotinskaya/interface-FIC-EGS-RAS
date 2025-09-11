@@ -68,7 +68,7 @@
 
 ### Скриншоты
 
-ПК:
+> ПК:
 ![Скриншот лендинга](./screenshots/screenshot_1.png)
 ![Скриншот лендинга](./screenshots/screenshot_2.png)
 ![Скриншот лендинга](./screenshots/screenshot_3.png)
@@ -77,11 +77,11 @@
 ![Скриншот лендинга](./screenshots/screenshot_6.png)
 ![Скриншот лендинга](./screenshots/screenshot_7.png)
 
-Планшет:
+> Планшет:
 ![Скриншот лендинга](<./screenshots/screenshot_10(tablet).png>)
 ![Скриншот лендинга](<./screenshots/screenshot_11(tablet).png>)
 
-Телефон:
+> Телефон:
 ![Скриншот лендинга](<./screenshots/screenshot_8(mobile).png>)
 ![Скриншот лендинга](<./screenshots/screenshot_9(mobile).png>)
 
