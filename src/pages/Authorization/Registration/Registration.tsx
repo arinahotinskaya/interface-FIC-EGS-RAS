@@ -1,6 +1,8 @@
 import Button from '@components/Button/Button.tsx'
 import './Registration.scss'
 import { useForm } from 'react-hook-form'
+import authService from '@services/authService.ts'
+import { useState } from 'react'
 
 interface RegistrationProps {
   'name': string,
@@ -12,8 +14,27 @@ interface RegistrationProps {
 
 function Registration() {
   const {register, handleSubmit, formState, watch} = useForm<RegistrationProps>();
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [submitSuccess, setSubmitSuccess] = useState<string | null>(null);
 
-  const onSubmit = async (data: RegistrationProps) => console.log(data);
+  const onSubmit = async (data: RegistrationProps) => {
+    setSubmitError(null);
+    setSubmitSuccess(null);
+    try {
+      const payload = {
+        email: data.email,
+        user_name: data.name,
+        organization: data.organization,
+        password: data.password,
+        password2: data['confirm-password'],
+      };
+      await authService.register(payload);
+      setSubmitSuccess('Пользователь успешно создан');
+      // window.location.href = '/Login';
+    } catch (err) {
+      setSubmitError('Не удалось зарегистрироваться');
+    }
+  };
 
   const nameError = formState.errors.name;
   const emailError = formState.errors.email;
@@ -78,6 +99,8 @@ function Registration() {
             placeholder='Подтверждение пароля'
           />
           {confirmPasswordError && <p className='reg__form-error'>{confirmPasswordError.message}</p>}
+          {submitError && <p className='reg__form-error'>{submitError}</p>}
+          {submitSuccess && <p className='reg__form-success'>{submitSuccess}</p>}
         </form>
         <Button form='reg__form' type='submit' aim='reg' content={'Зарегистрироваться'}></Button>
       </div>
