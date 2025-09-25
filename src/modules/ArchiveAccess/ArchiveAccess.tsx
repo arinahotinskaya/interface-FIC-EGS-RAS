@@ -3,7 +3,7 @@ import { allStationNames } from '@constants/constants.ts'
 import { useState } from 'react'
 import Checkbox from '@components/CustomInput/Checkbox.tsx'
 import Button from '@components/Button/Button.tsx'
-import http from '@services/http.ts'
+import axios from 'axios'
 import ArchiveError from './ArchiveError.tsx'
 import ArchiveDownloadInfo from './ArchiveDownloadInfo.tsx'
 import ArchiveResults from './ArchiveResults.tsx'
@@ -33,7 +33,9 @@ function Stations() {
   }
 
   async function sendRequest(url: string) {
-    return http.post(url.replace('http://localhost:8000', ''), { stations: selectedStations, startDate, endDate });
+    return axios.post(url, { stations: selectedStations, startDate, endDate }, {
+      headers: { 'Content-Type': 'application/json' }
+    });
   }
 
   async function handleDownload() {
@@ -62,10 +64,9 @@ function Stations() {
       document.body.removeChild(link);
 
       setDownloadInfo(data);
-    } catch (error: unknown) {
-      if (error && typeof error === 'object' && 'response' in error) {
-        const anyErr = error as { response?: { data?: { message?: string } }, message?: string };
-        setError(anyErr.response?.data?.message || anyErr.message || 'Ошибка запроса');
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        setError(error.response?.data?.message || error.message);
       } else if (error instanceof Error) {
         setError(error.message);
       } else {
@@ -92,10 +93,9 @@ function Stations() {
       const response = await sendRequest('http://localhost:8000/api/stations/');
       const data = response.data;
       setResults(data);
-    } catch (error: unknown) {
-      if (error && typeof error === 'object' && 'response' in error) {
-        const anyErr = error as { response?: { data?: { message?: string } }, message?: string };
-        setError(anyErr.response?.data?.message || anyErr.message || 'Ошибка запроса');
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        setError(error.response?.data?.message || error.message);
       } else if (error instanceof Error) {
         setError(error.message);
       } else {
